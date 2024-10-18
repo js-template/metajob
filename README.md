@@ -1,5 +1,5 @@
 
-#Metajob- Job Board App with Nextjs & Strapi
+# Metajob- Job Board App with Nextjs & Strapi
 
 > # 📢 Project Release Notice
 > 
@@ -11,7 +11,7 @@
 
 ## **What is Metajob?**
 #### Introduction:
-Padma is the easiest way to create lightning-fast websites using Strapi and Next.js. It's open source and free to use.
+Full Stack Job Portal Solution
 
 
 
@@ -61,7 +61,7 @@ In another terminal, navigate to the apps/site directory and run:
 pnpm install
 pnpm dev
 ```
-This will launch the frontend, and the site will be accessible at http://localhost:3000.
+This will launch the front end, and the site will be accessible at http://localhost:3000.
 
 Step 5: Explore and Customize
 Once everything is up and running, you can begin exploring the code, customizing themes, and adding your own content through the Strapi admin panel at http://localhost:1337/admin.
