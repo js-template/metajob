@@ -1,19 +1,11 @@
 
 # Metajob- Job Board App with Nextjs & Strapi
 
-> # 📢 Project Release Notice
-> 
-> This project is currently released as a **Job Board Solution** under an [EULA License](./EULA.md).
-> 
-> For now, it is available only for **job board use cases**, but it can be adapted for **multi-purpose solutions** soon.
-> 
-> ---
+![thumbspng](https://github.com/user-attachments/assets/bddc9e5b-7f94-4950-b5bc-44c73fccf534)
 
 ## **What is Metajob?**
 #### Introduction:
-Full Stack Job Portal Solution
-
-
+Full Stack Job Portal Solution.
 
 
 ## **Tech Stack:**
