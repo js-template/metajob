@@ -15,7 +15,7 @@ Here’s the complete documentation in markdown format for easy copying and past
 ## Prerequisites
 Before starting, ensure you have the following installed on your machine:
 
-- **Node.js** (v14 or higher)
+- **Node.js** (v20 or higher)
 - **PostgreSQL** (Ensure PostgreSQL is running and accessible)
 - **pnpm** (Recommended for managing dependencies)
 
