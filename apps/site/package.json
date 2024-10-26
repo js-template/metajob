@@ -24,6 +24,7 @@
       "@mui/material": "^5.15.10",
       "@mui/material-nextjs": "latest",
       "@padma/blank-theme": "workspace:*",
+      "@padma/metajob-ui": "0.0.2",
       "@strapi/blocks-react-renderer": "^1.0.1",
       "@types/lodash": "^4.14.202",
       "cookies-next": "^4.2.1",

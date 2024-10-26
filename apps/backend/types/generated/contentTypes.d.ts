@@ -737,50 +737,6 @@ export interface PluginReactIconsIconlibrary extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginMetajobStrapiJob extends Schema.CollectionType {
   collectionName: 'jobs';
   info: {
@@ -1464,6 +1420,50 @@ export interface PluginMetajobStrapiEmailHistory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::metajob-strapi.email-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
       'oneToOne',
       'admin::user'
     > &
@@ -2334,7 +2334,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::google-maps.config': PluginGoogleMapsConfig;
       'plugin::react-icons.iconlibrary': PluginReactIconsIconlibrary;
-      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::metajob-strapi.job': PluginMetajobStrapiJob;
       'plugin::metajob-strapi.bookmark': PluginMetajobStrapiBookmark;
       'plugin::metajob-strapi.chat': PluginMetajobStrapiChat;
@@ -2346,6 +2345,7 @@ declare module '@strapi/types' {
       'plugin::metajob-strapi.skill': PluginMetajobStrapiSkill;
       'plugin::metajob-strapi.job-category': PluginMetajobStrapiJobCategory;
       'plugin::metajob-strapi.email-history': PluginMetajobStrapiEmailHistory;
+      'plugin::i18n.locale': PluginI18NLocale;
       'api::blog-detail.blog-detail': ApiBlogDetailBlogDetail;
       'api::category.category': ApiCategoryCategory;
       'api::dashboard-home.dashboard-home': ApiDashboardHomeDashboardHome;

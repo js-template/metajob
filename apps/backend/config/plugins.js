@@ -52,17 +52,17 @@ module.exports = ({ env }) => ({
   },
   "react-icons": true,
 
-  email: {
-    config: {
-      provider: env("EMAIL_PROVIDER"),
-      providerOptions: {
-        apiKey: env("BREVO_API_KEY"),
-      },
-      settings: {
-        defaultSenderEmail: env("EMAIL_EMAIL"),
-        defaultSenderName: env("EMAIL_NAME"),
-        defaultReplyTo: env("EMAIL_EMAIL"),
-      },
-    },
-  },
+  // email: {
+  //   config: {
+  //     provider: env("EMAIL_PROVIDER"),
+  //     providerOptions: {
+  //       apiKey: env("BREVO_API_KEY"),
+  //     },
+  //     settings: {
+  //       defaultSenderEmail: env("EMAIL_EMAIL"),
+  //       defaultSenderName: env("EMAIL_NAME"),
+  //       defaultReplyTo: env("EMAIL_EMAIL"),
+  //     },
+  //   },
+  // },
 });

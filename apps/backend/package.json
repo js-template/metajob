@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@amicaldo/strapi-google-maps": "^1.1.3",
+    "@padma/metajob-backend": "^0.0.1",
     "@strapi/plugin-color-picker": "^4.15.5",
     "@strapi/plugin-i18n": "4.15.5",
     "@strapi/plugin-seo": "^1.9.8",
@@ -31,8 +32,8 @@
     "strapi-plugin-multi-select": "^1.2.3",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-react-icons": "^0.2.1",
-    "styled-components": "^5.2.1",
-    "strapi-provider-email-brevo": "^1.0.4"
+    "strapi-provider-email-brevo": "^1.0.4",
+    "styled-components": "^5.2.1"
   },
   "engines": {
     "node": "20"
