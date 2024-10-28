@@ -21,6 +21,7 @@
     "@strapi/plugin-seo": "^1.9.8",
     "@strapi/plugin-users-permissions": "4.19.0",
     "@strapi/provider-upload-cloudinary": "4.15.4",
+    "@padma/metajob-backend": "0.0.1",
     "@strapi/strapi": "4.15.5",
     "pg": "8.11.3",
     "prop-types": "^15.7.2",

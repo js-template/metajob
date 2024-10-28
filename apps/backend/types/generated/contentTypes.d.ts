@@ -652,6 +652,789 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginMetajobStrapiJob extends Schema.CollectionType {
+  collectionName: 'jobs';
+  info: {
+    singularName: 'job';
+    pluralName: 'jobs';
+    displayName: 'Jobs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    startDate: Attribute.Date & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    description: Attribute.RichText;
+    category: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToOne',
+      'plugin::metajob-strapi.job-category'
+    >;
+    type: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Full Time', 'Part Time', 'Contract Base', 'Freelance', 'Remote']
+      >;
+    vacancy: Attribute.Integer;
+    slug: Attribute.UID<'plugin::metajob-strapi.job', 'title'> &
+      Attribute.Required;
+    company: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToOne',
+      'plugin::metajob-strapi.company'
+    >;
+    status: Attribute.Enumeration<['open', 'closed', 'draft']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'draft'>;
+    endDate: Attribute.Date & Attribute.Required;
+    owner: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    location: Attribute.JSON &
+      Attribute.CustomField<'plugin::google-maps.location-picker'>;
+    tags: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToMany',
+      'api::tag.tag'
+    >;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiBookmark extends Schema.CollectionType {
+  collectionName: 'bookmarks';
+  info: {
+    singularName: 'bookmark';
+    pluralName: 'bookmarks';
+    displayName: 'Bookmark';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    owner: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    type: Attribute.Enumeration<['resume', 'job', 'company']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'resume'>;
+    resume: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'plugin::metajob-strapi.resume'
+    >;
+    note: Attribute.Text;
+    company: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'plugin::metajob-strapi.company'
+    >;
+    job: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'plugin::metajob-strapi.job'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.bookmark',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiChat extends Schema.CollectionType {
+  collectionName: 'chats';
+  info: {
+    singularName: 'chat';
+    pluralName: 'chats';
+    displayName: 'Chat';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sender: Attribute.Relation<
+      'plugin::metajob-strapi.chat',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    receiver: Attribute.Relation<
+      'plugin::metajob-strapi.chat',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    chat_blocked: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    job: Attribute.Relation<
+      'plugin::metajob-strapi.chat',
+      'oneToOne',
+      'plugin::metajob-strapi.job'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.chat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.chat',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiMessage extends Schema.CollectionType {
+  collectionName: 'messages';
+  info: {
+    singularName: 'message';
+    pluralName: 'messages';
+    displayName: 'Messages';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sender: Attribute.Relation<
+      'plugin::metajob-strapi.message',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    receiver: Attribute.Relation<
+      'plugin::metajob-strapi.message',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    message: Attribute.RichText & Attribute.Required;
+    medias: Attribute.Media;
+    read: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    send_notification: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    chat_session: Attribute.Relation<
+      'plugin::metajob-strapi.message',
+      'oneToOne',
+      'plugin::metajob-strapi.chat'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiCompany extends Schema.CollectionType {
+  collectionName: 'companies';
+  info: {
+    singularName: 'company';
+    pluralName: 'companies';
+    displayName: 'Companies';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    tagline: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.String;
+    website: Attribute.String;
+    company_size: Attribute.String;
+    revenue: Attribute.String;
+    logo: Attribute.Media;
+    industry: Attribute.Relation<
+      'plugin::metajob-strapi.company',
+      'oneToOne',
+      'plugin::metajob-strapi.job-category'
+    >;
+    slug: Attribute.UID & Attribute.Required;
+    owner: Attribute.Relation<
+      'plugin::metajob-strapi.company',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    location: Attribute.JSON &
+      Attribute.CustomField<'plugin::google-maps.location-picker'>;
+    social_links: Attribute.Component<'shared.social-medias', true>;
+    about: Attribute.RichText;
+    avg_price: Attribute.String;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiJobDetail extends Schema.SingleType {
+  collectionName: 'job_details';
+  info: {
+    singularName: 'job-detail';
+    pluralName: 'job-details';
+    displayName: 'Job Details';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    blocks: Attribute.DynamicZone<
+      [
+        'shared.spacing',
+        'shared.empty',
+        'component.page-title',
+        'single-type.job-details'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+    sidebar: Attribute.Enumeration<
+      ['Left Sidebar', 'Right Sidebar', 'No Sidebar', 'Both Sidebar']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Right Sidebar'>;
+    leftSidebar: Attribute.DynamicZone<['component.page-title']>;
+    relatedLists: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.job-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.job-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiAppliedJob extends Schema.CollectionType {
+  collectionName: 'applied_jobs';
+  info: {
+    singularName: 'applied-job';
+    pluralName: 'applied-jobs';
+    displayName: 'Applied Job';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    status: Attribute.Enumeration<['Shortlisted', 'Pending', 'Rejected']>;
+    owner: Attribute.Relation<
+      'plugin::metajob-strapi.applied-job',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    job: Attribute.Relation<
+      'plugin::metajob-strapi.applied-job',
+      'oneToOne',
+      'plugin::metajob-strapi.job'
+    >;
+    cover_letter: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.applied-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.applied-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiResume extends Schema.CollectionType {
+  collectionName: 'resumes';
+  info: {
+    singularName: 'resume';
+    pluralName: 'resumes';
+    displayName: 'Resume';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    education: Attribute.Component<'component.experience', true>;
+    experience: Attribute.Component<'component.experience', true>;
+    description: Attribute.RichText;
+    user: Attribute.Relation<
+      'plugin::metajob-strapi.resume',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    portfolio: Attribute.Component<'block.portfolio', true>;
+    contact: Attribute.Component<'block.contact'>;
+    name: Attribute.String;
+    tagline: Attribute.Text;
+    about: Attribute.RichText;
+    showProfile: Attribute.Enumeration<['Show', 'Hide']>;
+    category: Attribute.Relation<
+      'plugin::metajob-strapi.resume',
+      'oneToOne',
+      'plugin::metajob-strapi.job-category'
+    >;
+    salary: Attribute.BigInteger;
+    salaryType: Attribute.Enumeration<
+      [
+        'Monthly',
+        'Weekly',
+        'Hourly',
+        'Daily',
+        'Annually',
+        'Per Project',
+        'Commission-based'
+      ]
+    >;
+    language: Attribute.Enumeration<
+      [
+        'Arabic',
+        'Bengali',
+        'Bulgarian',
+        'Catalan',
+        'Chinese (Simplified)',
+        'Chinese (Traditional)',
+        'Croatian',
+        'Czech',
+        'Danish',
+        'Dutch',
+        'English',
+        'Estonian',
+        'Filipino',
+        'Finnish',
+        'French',
+        'Galician',
+        'Georgian',
+        'German',
+        'Greek',
+        'Gujarati',
+        'Hebrew',
+        'Hindi',
+        'Hungarian',
+        'Icelandic',
+        'Indonesian',
+        'Irish',
+        'Italian',
+        'Japanese',
+        'Javanese',
+        'Kannada',
+        'Kazakh',
+        'Korean',
+        'Kurdish (Kurmanji)',
+        'Kyrgyz',
+        'Lao',
+        'Latin',
+        'Latvian',
+        'Lithuanian',
+        'Macedonian',
+        'Malay',
+        'Malayalam',
+        'Maltese',
+        'Maori',
+        'Marathi',
+        'Mongolian',
+        'Nepali',
+        'Norwegian',
+        'Pashto',
+        'Persian',
+        'Polish',
+        'Portuguese',
+        'Punjabi',
+        'Romanian',
+        'Russian',
+        'Serbian',
+        'Slovak',
+        'Slovenian',
+        'Somali',
+        'Spanish',
+        'Sundanese',
+        'Swahili',
+        'Swedish',
+        'Tamil',
+        'Telugu',
+        'Thai',
+        'Turkish',
+        'Ukrainian',
+        'Urdu',
+        'Uzbek',
+        'Vietnamese',
+        'Welsh',
+        'Xhosa',
+        'Yiddish',
+        'Yoruba',
+        'Zulu'
+      ]
+    >;
+    experienceTime: Attribute.Enumeration<
+      ['Freshers', 'Junior', 'Mid-Level', 'Senior', 'Lead']
+    >;
+    qualification: Attribute.Enumeration<
+      [
+        'Bachelor\u2019s Degree',
+        'Master\u2019s Degree',
+        'Doctoral Degree (Ph.D.)',
+        'Associate Degree',
+        'Diploma',
+        'Certificate'
+      ]
+    >;
+    slug: Attribute.UID<'plugin::metajob-strapi.resume', 'name'>;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.resume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.resume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiSkill extends Schema.CollectionType {
+  collectionName: 'skills';
+  info: {
+    singularName: 'skill';
+    pluralName: 'skills';
+    displayName: 'Skill';
+  };
+  options: {
+    draftAndPublish: true;
+    comment: '';
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String;
+    value: Attribute.UID<'plugin::metajob-strapi.skill', 'title'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'plugin::metajob-strapi.skill',
+      'oneToMany',
+      'plugin::metajob-strapi.skill'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface PluginMetajobStrapiJobCategory extends Schema.CollectionType {
+  collectionName: 'job_categories';
+  info: {
+    singularName: 'job-category';
+    pluralName: 'job-categories';
+    displayName: 'Job Category';
+  };
+  options: {
+    draftAndPublish: true;
+    comment: '';
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    link: Attribute.Component<'component.link'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.job-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.job-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'plugin::metajob-strapi.job-category',
+      'oneToMany',
+      'plugin::metajob-strapi.job-category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface PluginMetajobStrapiEmailHistory extends Schema.CollectionType {
+  collectionName: 'email_histories';
+  info: {
+    singularName: 'email-history';
+    pluralName: 'email-histories';
+    displayName: 'Email History';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    title: Attribute.String;
+    datetime: Attribute.DateTime;
+    receiver: Attribute.Email;
+    owner: Attribute.Relation<
+      'plugin::metajob-strapi.email-history',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.email-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.email-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiResumeDetail extends Schema.SingleType {
+  collectionName: 'resume_details';
+  info: {
+    singularName: 'resume-detail';
+    pluralName: 'resume-details';
+    displayName: 'Resume Details';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    blocks: Attribute.DynamicZone<
+      [
+        'shared.spacing',
+        'shared.empty',
+        'component.page-title',
+        'single-type.resume-details'
+      ]
+    >;
+    sidebar: Attribute.Enumeration<
+      ['Left Sidebar', 'Right Sidebar', 'No Sidebar', 'Both Sidebar']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Right Sidebar'>;
+    leftSidebar: Attribute.DynamicZone<['component.page-title']>;
+    relatedLists: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.resume-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.resume-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMetajobStrapiCompanyDetail extends Schema.SingleType {
+  collectionName: 'company_details';
+  info: {
+    singularName: 'company-detail';
+    pluralName: 'company-details';
+    displayName: 'Company Details';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    blocks: Attribute.DynamicZone<
+      [
+        'shared.spacing',
+        'shared.empty',
+        'component.page-title',
+        'single-type.company-deatils'
+      ]
+    >;
+    sidebar: Attribute.Enumeration<
+      ['Left Sidebar', 'Right Sidebar', 'No Sidebar', 'Both Sidebar']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Right Sidebar'>;
+    leftSidebar: Attribute.DynamicZone<['component.page-title']>;
+    openJobs: Attribute.Boolean;
+    style: Attribute.Component<'component.style-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::metajob-strapi.company-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::metajob-strapi.company-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginGoogleMapsConfig extends Schema.SingleType {
   collectionName: 'google_maps_configs';
   info: {
@@ -1637,6 +2420,19 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::metajob-strapi.job': PluginMetajobStrapiJob;
+      'plugin::metajob-strapi.bookmark': PluginMetajobStrapiBookmark;
+      'plugin::metajob-strapi.chat': PluginMetajobStrapiChat;
+      'plugin::metajob-strapi.message': PluginMetajobStrapiMessage;
+      'plugin::metajob-strapi.company': PluginMetajobStrapiCompany;
+      'plugin::metajob-strapi.job-detail': PluginMetajobStrapiJobDetail;
+      'plugin::metajob-strapi.applied-job': PluginMetajobStrapiAppliedJob;
+      'plugin::metajob-strapi.resume': PluginMetajobStrapiResume;
+      'plugin::metajob-strapi.skill': PluginMetajobStrapiSkill;
+      'plugin::metajob-strapi.job-category': PluginMetajobStrapiJobCategory;
+      'plugin::metajob-strapi.email-history': PluginMetajobStrapiEmailHistory;
+      'plugin::metajob-strapi.resume-detail': PluginMetajobStrapiResumeDetail;
+      'plugin::metajob-strapi.company-detail': PluginMetajobStrapiCompanyDetail;
       'plugin::google-maps.config': PluginGoogleMapsConfig;
       'plugin::react-icons.iconlibrary': PluginReactIconsIconlibrary;
       'plugin::i18n.locale': PluginI18NLocale;

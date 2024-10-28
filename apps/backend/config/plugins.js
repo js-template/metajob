@@ -4,6 +4,9 @@ module.exports = ({ env }) => ({
       jwtSecret: env("JWT_SECRET"),
     },
   },
+  "metajob-strapi": {
+    enabled: true,
+  },
   upload: {
     config: {
       provider: "cloudinary",
