@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_single_type_company_deatils",
+  "info": {
+    "displayName": "companyDeatils",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
+    }
+  }
+}

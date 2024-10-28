@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_config_single_pages",
+  "info": {
+    "displayName": "singlePage",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "collectionModel": {
+      "type": "string",
+      "default": "api/posts"
+    },
+    "singelModel": {
+      "type": "string"
+    }
+  }
+}

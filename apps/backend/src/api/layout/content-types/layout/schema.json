@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -16,145 +16,43 @@
     }
   },
   "attributes": {
-    "light_logo": {
-      "type": "component",
-      "repeatable": false,
+    "header": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "header.logo"
+      "type": "dynamiczone",
+      "components": [
+        "block.public-header",
+        "block.private-header"
+      ],
+      "required": false
     },
-    "Button": {
-      "type": "component",
-      "repeatable": true,
+    "footer": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "component.link"
+      "type": "dynamiczone",
+      "components": [
+        "block.footer",
+        "widget.footer-top"
+      ],
+      "required": false
     },
-    "FooterOne": {
-      "type": "component",
-      "repeatable": false,
+    "private_sidebar_menus": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "widget.footer-one"
-    },
-    "FooterTwo": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "widget.footer-two"
-    },
-    "FooterThree": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "widget.footer-two"
-    },
-    "userMenu": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "component.link"
-    },
-    "FooterFour": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "widget.footer-two"
-    },
-    "FooterTop": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "widget.footer-search"
-    },
-    "FooterBottom": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "widget.footer-bottom"
-    },
-    "dark_logo": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "header.logo"
-    },
-    "langMenu": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "component.link"
-    },
-    "employerSidebar": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "component.menu"
-    },
-    "candidateSidebar": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "component.menu"
-    },
-    "MainMenu": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "component.menu"
+      "type": "dynamiczone",
+      "components": [
+        "shared.share-menu"
+      ],
+      "required": false
     }
   }
 }

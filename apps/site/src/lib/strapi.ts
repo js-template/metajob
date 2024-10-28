@@ -18,8 +18,6 @@ const apiUrl = process.env.STRAPI_ENDPOINT
 export const create = async (model: string, data: any, revalidatePath?: string, revalidateType?: "page" | "layout") => {
    const session = await auth()
 
-   // console.log("Session", session);
-
    if (!session?.user?.jwtToken) {
       return {
          data: null,

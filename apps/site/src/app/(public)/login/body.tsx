@@ -2,8 +2,10 @@
 import { useEffect, useState } from "react"
 import { signIn, useSession } from "next-auth/react"
 import toast from "react-hot-toast"
-import { LoginCard, PageLoader } from "@padma/metajob-ui"
+
 import { useRouter } from "next/navigation"
+import { PageLoader } from "@/components/loader/pageLoader"
+import { LoginCard } from "@/components/login-card"
 
 const LoginBody = ({ callbackUrl, error }: { error: string | undefined; callbackUrl: string | undefined }) => {
    const { status } = useSession()

@@ -23,7 +23,6 @@
       "paths": {
          "@/*": ["./src/*"],
          "auth": ["./src/context/auth"],
-         "@faceData/*": ["@fake-data/*"]
       }
    },
    "include": [
@@ -32,7 +31,6 @@
       "**/*.tsx",
       ".next/types/**/*.ts",
       "src/middleware.ts",
-      "../../packages/ui/src/utils/blocks.tsx"
    ],
    "exclude": ["node_modules"]
 }

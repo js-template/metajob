@@ -1,0 +1,31 @@
+{
+   "compilerOptions": {
+      "outDir": "dist",
+      "rootDir": "src", // root directory of your source files
+      "declaration": true,
+      "declarationDir": "dist/types",
+      "target": "ES6", // or "ES6"
+
+      "allowJs": true,
+      "strict": true,
+      "baseUrl": "./",
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx", // Add or ensure this line is present
+      "incremental": true,
+
+      "esModuleInterop": true, // Helps with default imports from CommonJS modules
+      "skipLibCheck": true, // Skip type checking of declaration files (declaration: true)
+      "paths": {
+         "@/*": ["./src/*"],
+         "@components/*": ["./src/components/*"],
+         "@lib/*": ["./src/lib/*"]
+      }
+   },
+   "include": ["src/**/*"],
+   "exclude": ["dist", "build", "node_modules"]
+}

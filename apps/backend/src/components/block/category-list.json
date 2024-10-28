@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_block_category_lists",
+  "info": {
+    "displayName": "CategoryList",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    }
+  }
+}

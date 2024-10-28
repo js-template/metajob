@@ -1,0 +1,74 @@
+{
+  "collectionName": "components_block_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "server",
+    "description": "The footer block is used to display the footer of the website."
+  },
+  "options": {},
+  "attributes": {
+    "FooterGrid": {
+      "type": "integer",
+      "required": true,
+      "description": "Number of columns in the footer grid",
+      "min": 1,
+      "max": 4
+    },
+    "FooterOne": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "widget.footer-one"
+    },
+    "FooterTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "widget.footer-two"
+    },
+    "FooterThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "widget.footer-two"
+    },
+    "FooterFour": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "widget.footer-two"
+    },
+    "FooterBottom": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "widget.footer-bottom"
+    },
+    "copyright": {
+      "type": "boolean",
+      "required": true,
+      "description": "Display the copyright",
+      "default": true
+    }
+  }
+}

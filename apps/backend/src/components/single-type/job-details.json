@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_single_type_job_details",
+  "info": {
+    "displayName": "job Details",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
+    }
+  }
+}

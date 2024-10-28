@@ -1,47 +1,12 @@
 import { Fragment } from "react"
 import { notFound } from "next/navigation"
 import { Metadata, ResolvingMetadata } from "next"
-import { blockComponentMapping } from "@/lib/component.map"
 import { find } from "@/lib/strapi"
 import { StrapiSeoFormate } from "@/lib/strapiSeo"
 import { getLanguageFromCookie } from "@/utils/language"
+import { loadActiveTheme } from "config/theme-loader"
+
 export const dynamicParams = false // true | false,
-
-// *** generate metadata type
-type Props = {
-   params: { slug: string }
-   searchParams: { [key: string]: string | string[] | undefined }
-}
-
-// *** generate metadata for the page
-export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-   const pageSlug = params?.slug
-   const language = getLanguageFromCookie()
-
-   // ***fetch seo data
-   const product = await find(
-      "api/pages",
-      {
-         filters: {
-            slug: {
-               $eq: pageSlug
-            }
-         },
-         populate: "*",
-         publicationState: "live",
-         locale: language ? [language] : ["en"]
-      },
-      "no-store"
-   )
-
-   if (!product?.data?.data?.[0]?.attributes?.seo) {
-      return {
-         title: product?.data?.data?.[0]?.attributes?.title || "Title not found",
-         description: `Description ${product?.data?.data[0]?.attributes?.title}` || "Description not found"
-      }
-   }
-   return StrapiSeoFormate(product?.data?.data?.[0]?.attributes?.seo, `/${pageSlug}`)
-}
 
 export default async function DynamicPages({
    params
@@ -50,6 +15,8 @@ export default async function DynamicPages({
    searchParams: { [key: string]: string | string[] | undefined }
 }) {
    const pageSlug = params?.slug
+   // Load the active theme and get public components
+   const { getPublicComponents } = await loadActiveTheme()
 
    const language = getLanguageFromCookie()
 
@@ -74,7 +41,6 @@ export default async function DynamicPages({
    if (!blocks || blocks?.length === 0) {
       return notFound()
    }
-
    // *** if error, return error page ***
    // if (error) {
    //    throw error;
@@ -83,12 +49,13 @@ export default async function DynamicPages({
    return (
       <Fragment>
          {blocks?.map((block: any, index: number) => {
-            const BlockConfig = blockComponentMapping[block.__component]
+            const BlockConfig = getPublicComponents[block.__component as keyof typeof getPublicComponents]
 
             if (BlockConfig) {
                const { component: ComponentToRender } = BlockConfig
 
-               return <ComponentToRender key={index} data={block} language={language} {...block} />
+               //@ts-ignore
+               return <ComponentToRender key={index} block={block} language={language} />
             }
             return null // Handle the case where the component mapping is missing
          })}
@@ -98,17 +65,58 @@ export default async function DynamicPages({
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-   const { data, error } = await find(
-      "api/pages",
-      {
-         fields: ["slug"],
-         publicationState: "live",
-         locale: ["en"]
+   const { data, error } = await find("api/pages", {
+      fields: ["slug"],
+      filters: {
+         slug: {
+            $ne: null
+         }
       },
-      "force-cache"
-   )
+      publicationState: "live",
+      locale: ["en"]
+   })
 
    return data?.data?.map((post: any) => ({
-      slug: post?.attributes?.slug
+      slug: post?.attributes?.slug || ""
    }))
+}
+
+// *** generate metadata type
+type Props = {
+   params: { slug: string }
+   searchParams: { [key: string]: string | string[] | undefined }
+}
+
+// *** generate metadata for the page
+export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+   const pageSlug = params?.slug
+   const language = getLanguageFromCookie()
+
+   // ***fetch seo data
+   const product = await find(
+      "api/pages",
+      {
+         filters: {
+            slug: {
+               $eq: pageSlug
+            }
+         },
+         populate: {
+            seo: {
+               populate: "*"
+            }
+         },
+         publicationState: "live",
+         locale: language ? [language] : ["en"]
+      },
+      "no-store"
+   )
+
+   if (!product?.data?.data?.[0]?.attributes?.seo) {
+      return {
+         title: product?.data?.data?.[0]?.attributes?.title || "Title not found",
+         description: `Description ${product?.data?.data[0]?.attributes?.title}` || "Description not found"
+      }
+   }
+   return StrapiSeoFormate(product?.data?.data?.[0]?.attributes?.seo, `/${pageSlug}`)
 }

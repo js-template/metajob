@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "job_details",
+  "info": {
+    "singularName": "job-detail",
+    "pluralName": "job-details",
+    "displayName": "Job Details",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.spacing",
+        "shared.empty",
+        "component.page-title",
+        "single-type.job-details"
+      ],
+      "required": true,
+      "min": 1
+    },
+    "sidebar": {
+      "type": "enumeration",
+      "enum": [
+        "Left Sidebar",
+        "Right Sidebar",
+        "No Sidebar",
+        "Both Sidebar"
+      ],
+      "default": "Right Sidebar",
+      "required": true
+    },
+    "leftSidebar": {
+      "type": "dynamiczone",
+      "components": [
+        "component.page-title"
+      ]
+    },
+    "relatedLists": {
+      "type": "boolean"
+    }
+  }
+}

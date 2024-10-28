@@ -22,6 +22,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post"
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
     }
   }
 }

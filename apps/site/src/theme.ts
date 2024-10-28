@@ -120,7 +120,7 @@ const lightTheme = createTheme({
    spacing: 9,
    mixins: {
       toolbar: {
-         minHeight: 75
+         minHeight: 60
       }
    },
    components: {
@@ -468,7 +468,7 @@ const darkTheme = createTheme({
    spacing: 9,
    mixins: {
       toolbar: {
-         minHeight: 75
+         minHeight: 60
       }
    },
    components: {

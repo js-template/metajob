@@ -1,0 +1,48 @@
+{
+   "name": "@padma/blank-theme",
+   "version": "0.0.1",
+   "private": true,
+   "main": "src/index.tsx",
+   "types": "src/types/index.d.ts",
+   "keywords": [],
+   "license": "EULA",
+   "scripts": {
+      "build": "tsc",
+      "dev": "tsc --watch",
+      "lint": "eslint .",
+      "format": "prettier --write . --ignore-path .prettierignore",
+      "publish:pack": "npm pack --pack-destination dist",
+      "publish:upload": "node scripts/publish.js",
+      "publish": "npm run publish:pack && npm run publish:upload"
+   },
+   "dependencies": {
+      "@emotion/react": "latest",
+      "@emotion/styled": "latest",
+      "@iconify/react": "^5.0.2",
+      "@mui/icons-material": "^5.15.10",
+      "@mui/lab": "5.0.0-alpha.173",
+      "@mui/material": "^5.16.7",
+      "@mui/material-nextjs": "latest",
+      "@mui/system": "^6.1.5",
+      "@strapi/blocks-react-renderer": "^1.0.1",
+      "build": "^0.1.4",
+      "eslint": "8.36.0",
+      "eslint-config-next": "14.1.0",
+      "lodash": "^4.17.21",
+      "next": "14.1.0",
+      "next-themes": "^0.3.0",
+      "qs": "^6.13.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-hot-toast": "^2.4.1",
+      "swr": "^2.2.5"
+   },
+   "devDependencies": {
+      "@types/lodash": "^4.14.202",
+      "@types/node": "latest",
+      "@types/react": "latest",
+      "@types/react-dom": "latest",
+      "node-fetch": "^2.6.1",
+      "typescript": "latest"
+   }
+}

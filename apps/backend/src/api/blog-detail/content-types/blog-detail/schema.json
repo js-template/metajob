@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -47,7 +47,8 @@
       "type": "dynamiczone",
       "components": [
         "shared.spacing",
-        "component.page-title"
+        "component.page-title",
+        "single-type.blog-details"
       ]
     },
     "leftSidebar": {

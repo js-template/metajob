@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "resume_details",
+  "info": {
+    "singularName": "resume-detail",
+    "pluralName": "resume-details",
+    "displayName": "Resume Details",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.spacing",
+        "shared.empty",
+        "component.page-title",
+        "single-type.resume-details"
+      ]
+    },
+    "sidebar": {
+      "type": "enumeration",
+      "enum": [
+        "Left Sidebar",
+        "Right Sidebar",
+        "No Sidebar",
+        "Both Sidebar"
+      ],
+      "default": "Right Sidebar",
+      "required": true
+    },
+    "leftSidebar": {
+      "type": "dynamiczone",
+      "components": [
+        "component.page-title"
+      ]
+    },
+    "relatedLists": {
+      "type": "boolean"
+    }
+  }
+}

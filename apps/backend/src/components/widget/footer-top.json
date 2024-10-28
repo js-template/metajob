@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_widget_footer_tops",
+  "info": {
+    "displayName": "FooterTop",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "light_logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "dark_logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "search": {
+      "type": "component",
+      "repeatable": false,
+      "component": "forms.seaech-form"
+    }
+  }
+}

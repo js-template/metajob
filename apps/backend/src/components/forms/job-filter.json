@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::metajob-strapi.job-category"
-    },
     "job_type": {
       "type": "customField",
       "options": [
@@ -49,6 +44,11 @@
       "type": "component",
       "repeatable": false,
       "component": "forms.seaech-form"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.job-list"
     }
   }
 }

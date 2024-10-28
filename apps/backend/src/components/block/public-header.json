@@ -1,0 +1,66 @@
+{
+  "collectionName": "components_block_headers",
+  "info": {
+    "displayName": "Public Header",
+    "icon": "layout",
+    "description": "The header block is used to display the header of the website."
+  },
+  "options": {},
+  "attributes": {
+    "light_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.logo"
+    },
+    "dark_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.logo"
+    },
+    "dark_mode": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "notification": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "MainMenu": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "component.menu"
+    },
+    "langMenu": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "component.link"
+    },
+    "userMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.link"
+    },
+    "Button": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "component.link"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_single_type_blog_details",
+  "info": {
+    "displayName": "Blog Details",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
+    },
+    "sidebar": {
+      "type": "enumeration",
+      "enum": [
+        "Left Sidebar",
+        "Right Sidebar",
+        "Both Sidebar",
+        "No Sidebar"
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_block_private_headers",
+  "info": {
+    "displayName": "Private Header",
+    "icon": "server",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "light_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.logo"
+    },
+    "dark_logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.logo"
+    },
+    "userMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.link"
+    },
+    "langMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.link"
+    },
+    "dark_mode": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "notification": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

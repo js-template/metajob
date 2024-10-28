@@ -27,6 +27,13 @@
       "type": "component",
       "repeatable": false,
       "component": "component.icon-with-label"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "component.style-section",
+      "min": 1
     }
   }
 }

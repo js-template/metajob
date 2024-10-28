@@ -17,6 +17,24 @@
     },
     "link": {
       "type": "string"
+    },
+    "xs_width": {
+      "type": "integer",
+      "required": true,
+      "default": 150,
+      "min": 0
+    },
+    "sm_width": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "default": 160
+    },
+    "md_width": {
+      "type": "integer",
+      "default": 175,
+      "required": true,
+      "min": 0
     }
   }
 }

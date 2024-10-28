@@ -5,10 +5,10 @@ import { Session } from "next-auth"
 import useSWR from "swr"
 import { privetPageFetcher } from "./utils"
 import { useGlobalContext } from "@/context/store"
-import { getPrivateComponents } from "../../../../../config/theme-settings"
 
 interface BodyProps {
    blocks: any[]
+   language?: string
    styleData?: {
       columnSpacing: number | null
       rowSpacing: number | null
@@ -19,9 +19,10 @@ interface BodyProps {
    }
    pageSlug: string
    session: Session | null
+   currentThemeComponents: any
 }
 
-const Body: React.FC<BodyProps> = ({ blocks, styleData, pageSlug, session }) => {
+const Body: React.FC<BodyProps> = ({ blocks, language, styleData, pageSlug, session, currentThemeComponents }) => {
    const { direction } = useGlobalContext()
 
    const queryParams = {
@@ -61,22 +62,12 @@ const Body: React.FC<BodyProps> = ({ blocks, styleData, pageSlug, session }) => 
          {...(data?.styles?.columns && { columns: data?.styles.columns })}
          {...(data?.styles?.wrap && { wrap: data?.styles.wrap })}
          sx={{ mb: 4 }}>
-         {data?.blocks?.map((block: { __component: keyof typeof getPrivateComponents }, index: number) => {
-            const BlockConfig = getPrivateComponents[block.__component]
+         {data?.blocks?.map((block: { __component: keyof typeof currentThemeComponents }, index: number) => {
+            const BlockConfig = currentThemeComponents[block.__component]
 
             if (BlockConfig) {
                const { component: ComponentToRender } = BlockConfig
-               return (
-                  <ComponentToRender
-                     key={index}
-                     userId={Number(session?.user?.id)}
-                     // @ts-ignore
-                     role={session?.user?.role?.type}
-                     direction={direction}
-                     data={block}
-                     {...block}
-                  />
-               )
+               return <ComponentToRender key={index} block={block} session={session} language={language} />
             }
             return null // Handle the case where the component mapping is missing
          })}

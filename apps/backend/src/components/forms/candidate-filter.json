@@ -14,11 +14,6 @@
       "repeatable": false,
       "component": "forms.seaech-form"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
-    },
     "rate": {
       "type": "customField",
       "options": [
@@ -35,6 +30,11 @@
       "type": "component",
       "repeatable": false,
       "component": "component.link"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.job-list"
     }
   }
 }

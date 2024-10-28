@@ -14,6 +14,13 @@
       "type": "component",
       "repeatable": true,
       "component": "component.link"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "component.style-section",
+      "min": 1
     }
   }
 }

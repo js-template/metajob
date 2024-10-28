@@ -182,7 +182,8 @@ export const getUser = async (token: string) => {
          const jwt = cookie.get("jwt")
          Token = jwt?.value as string
       }
-      const response = await fetch(`${process.env.STRAPI_ENDPOINT}/api/users/me?populate=deep`, {
+
+      const response = await fetch(`${process.env.STRAPI_ENDPOINT}/api/users/me?populate=*`, {
          headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`

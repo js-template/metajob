@@ -1,6 +1,7 @@
 {
-  "name": "mui-nextjs-setup",
-  "version": "1.0.0",
+  "name": "padma",
+  "description": "Padma - The Next.js Framework for Strapi",
+  "version": "0.0.2",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -18,7 +19,7 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=20.0.0"
   },
   "dependencies": {},
   "packageManager": "pnpm@9.11.0"

@@ -1,6 +1,6 @@
 {
   "name": "@padma/backend",
-  "version": "1.0.0-beta",
+  "version": "0.0.2",
   "private": true,
   "description": "A Strapi application",
   "license": "MIT",
@@ -22,7 +22,6 @@
     "@strapi/plugin-users-permissions": "4.19.0",
     "@strapi/provider-upload-cloudinary": "4.15.4",
     "@strapi/strapi": "4.15.5",
-    "@padma/metajob-backend": "0.0.1",
     "pg": "8.11.3",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",

@@ -43,3 +43,4 @@ yarn.lock*
 .npmrc
 apps/backend/src/plugins/metajob-backend/
 .npmrc
+tsconfig.tsbuildinfo

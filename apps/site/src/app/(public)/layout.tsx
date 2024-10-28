@@ -1,15 +1,12 @@
 import React from "react"
-import { cookies } from "next/headers"
-import { Box } from "@mui/material"
 import { find } from "@/lib/strapi"
-import { Footer } from "@padma/metajob-ui"
-import HeaderBody from "./headerBody"
+import { loadActiveTheme } from "../../../config/theme-loader"
+import LayoutBody from "./body"
+import { getLanguageFromCookie } from "@/utils/language"
 
 export default async function PublicLayout(props: { children: React.ReactNode }) {
-   const cookieStore = cookies()
-   // FIXME: Shoudl all cookie, its preventing faster switching page
-   const Lang = cookieStore.get("lang")
-   const language = Lang ? Lang.value : "en"
+   // fetch the language from cookies or session
+   const language = getLanguageFromCookie()
 
    // get the layout data from the server
    const { data } = await find(
@@ -22,21 +19,8 @@ export default async function PublicLayout(props: { children: React.ReactNode })
       "no-store"
    )
 
-   return (
-      <main>
-         <HeaderBody />
-         <Box
-            sx={
-               {
-                  // display: "flex",
-                  // flexDirection: "column",
-                  // justifyContent: "center",
-                  // alignItems: "center"
-               }
-            }>
-            {props.children}
-         </Box>
-         <Footer data={data?.data?.attributes} />
-      </main>
-   )
+   // Load the active theme and get public components
+   const { getPublicComponents } = await loadActiveTheme()
+
+   return <LayoutBody data={data} language={language} currentThemeComponents={getPublicComponents} {...props} />
 }

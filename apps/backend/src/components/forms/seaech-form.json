@@ -21,10 +21,8 @@
     "link": {
       "type": "string"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
+    "searchByCategory": {
+      "type": "string"
     }
   }
 }

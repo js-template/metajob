@@ -4,7 +4,8 @@ import { signIn, useSession } from "next-auth/react"
 import { SignUp } from "@/lib/user"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
-import { PageLoader, SignUpCard } from "@padma/metajob-ui"
+import { PageLoader } from "@/components/loader/pageLoader"
+import { SignUpCard } from "@/components/signup-card"
 
 const RegisterBody = () => {
    const router = useRouter()

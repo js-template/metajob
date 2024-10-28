@@ -6,6 +6,7 @@ import Body from "./body"
 import { auth } from "@/context/auth"
 import { redirect } from "next/navigation"
 import _ from "lodash"
+import { loadActiveTheme } from "config/theme-loader"
 
 // *** generate metadata type
 
@@ -60,7 +61,6 @@ export default async function DashboardPage({
    // Get the role from session and determine the correct block to render
    const userRole = session?.user?.role?.type?.toLowerCase()
 
-   //console.log("User Role", userRole)
    const blocksData = _.get(data, "data.attributes", {})
    const role1 = blocksData?.role1
    const role2 = blocksData?.role2
@@ -71,9 +71,18 @@ export default async function DashboardPage({
 
    const styles = blocksData?.styles
 
+   // Load the active theme and get public components
+   const { getPrivateComponents } = await loadActiveTheme()
+
    return (
       <>
-         <Body blocks={blocks} styles={styles} session={session} language={language} />
+         <Body
+            blocks={blocks}
+            styles={styles}
+            session={session}
+            language={language}
+            currentThemeComponents={getPrivateComponents}
+         />
       </>
    )
 }

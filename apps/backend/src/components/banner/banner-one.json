@@ -30,7 +30,14 @@
       ]
     },
     "style": {
-      "type": "json"
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
     }
   }
 }

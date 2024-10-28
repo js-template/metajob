@@ -40,6 +40,10 @@ export const config = {
             if (result?.isLoggedIn) {
                const data = await getUser(result.data)
 
+               if (data?.error) {
+                  return Promise.resolve(null)
+               }
+
                return Promise.resolve({
                   ...data.data,
                   jwtToken: result.data

@@ -18,7 +18,6 @@ import { StyledEngineProvider } from "@mui/material/styles"
 export default async function RootLayout(props: { children: React.ReactNode }) {
    const session = await auth()
    const cookieStore = cookies()
-   // FIXME: Shoudl all cookie, its preventing faster switching page
    const Lang = cookieStore.get("lang")
 
    const language = Lang ? Lang.value : "en"

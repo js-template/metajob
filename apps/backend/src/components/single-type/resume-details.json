@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_single_type_resume_details",
+  "info": {
+    "displayName": "Resume Details",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.style-section"
+    }
+  }
+}

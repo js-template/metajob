@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_share_menus",
+  "info": {
+    "displayName": "Share Menu",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "role": {
+      "type": "enumeration",
+      "enum": ["candidate", "employer"],
+      "required": true,
+      "default": "candidate"
+    },
+    "menus": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "component.menu"
+    }
+  }
+}
