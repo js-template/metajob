@@ -88,7 +88,7 @@ pnpm install
 
 ## **Tech Stack:**
 
-- **Backend:**  Powered by a headless Strapi CMS with PostgreSQL as the database. [Learn more about Strapi](https://strapi.io/documentation).
+- **Backend:**  Powered by a headless Strapi CMS with PostgreSQL as the database. [Learn more about Strapi](https://strapi.io/documentation)
    
 - **Frontend:**  Built with Next.js for fast rendering and MUI for a modern, responsive user interface.
 
