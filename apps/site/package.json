@@ -1,8 +1,7 @@
 {
    "name": "@padma/frontend",
    "version": "0.0.2",
-   "private": true,
-   "description": "Padma- Nextjs frontend",
+   "description": "Padma- Nextjs with MUI frontend ",
    "license": "MIT",
    "author": {
       "name": "JS Template",
