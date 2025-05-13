@@ -1,16 +1,20 @@
 {
-  "collectionName": "components_widget_contact_widgets",
+  "collectionName": "components_footer_contact_widgets",
   "info": {
-    "displayName": "Contact Widget",
+    "displayName": "Contact Info",
     "icon": "envelop"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": false,
+      "default": "Description Here"
     },
     "logo": {
       "type": "component",
@@ -18,13 +22,19 @@
       "component": "config.logo"
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Location Here"
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Phone Here"
     },
     "email": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Email Here"
     },
     "style": {
       "type": "component",

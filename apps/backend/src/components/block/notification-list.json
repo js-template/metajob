@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_notification_lists",
+  "info": {
+    "displayName": "Notification List",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    },
+    "column_1": {
+      "type": "string",
+      "required": true
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    }
+  }
+}

@@ -4,7 +4,13 @@
     "displayName": "Social Medias",
     "icon": "earth"
   },
+  "category": "shared",
+  "modelName": "social-medias",
+  "globalId": "ComponentsSharedSocialMedias",
+  "uid": "shared.social-medias",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "type": {
       "type": "enumeration",
@@ -32,7 +38,8 @@
     },
     "link": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "#"
     }
   }
 }

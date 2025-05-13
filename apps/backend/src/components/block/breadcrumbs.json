@@ -2,9 +2,11 @@
   "collectionName": "components_block_breadcrumbs",
   "info": {
     "displayName": "Breadcrumbs",
-    "icon": "manyWays"
+    "icon": "manyWays",
+    "description": ""
   },
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "separator": {
       "type": "string",
@@ -13,11 +15,7 @@
     },
     "variation": {
       "type": "enumeration",
-      "enum": [
-        "default",
-        "simple",
-        "minimal"
-      ],
+      "enum": ["default", "simple", "minimal"],
       "default": "default"
     },
     "style": {

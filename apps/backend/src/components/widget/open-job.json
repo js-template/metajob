@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_widget_open_jobs",
+  "info": {
+    "displayName": "Open Job",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "widget.count-card"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

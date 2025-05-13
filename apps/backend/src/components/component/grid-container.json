@@ -2,9 +2,16 @@
   "collectionName": "components_component_grid_containers",
   "info": {
     "displayName": "Grid Container",
-    "icon": "brush"
+    "icon": "brush",
+    "description": ""
   },
+  "category": "component",
+  "modelName": "grid-container",
+  "globalId": "ComponentsComponentGirdContainers",
+  "uid": "component.grid-container",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "columnSpacing": {
       "type": "decimal",
@@ -20,11 +27,7 @@
     },
     "wrap": {
       "type": "enumeration",
-      "enum": [
-        "wrap-reverse",
-        "nowrap",
-        "wrap"
-      ],
+      "enum": ["wrap-reverse", "nowrap", "wrap"],
       "default": "wrap"
     },
     "zeroMinWidth": {

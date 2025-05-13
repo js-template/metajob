@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_metajob_block_manage_resumes",
+  "info": {
+    "displayName": "Manage Resume",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    }
+  }
+}

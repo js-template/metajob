@@ -2,29 +2,39 @@
   "collectionName": "components_config_links",
   "info": {
     "displayName": "Link",
-    "icon": "cursor"
+    "icon": "cursor",
+    "description": ""
   },
+  "category": "component",
+  "modelName": "link",
+  "globalId": "ComponentsConfigLinks",
+  "uid": "config.link",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "label": {
-      "type": "string"
+      "type": "string",
+      "unique": false,
+      "required": false,
+      "default": "Button"
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "#"
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "External",
-        "Internal"
-      ]
+      "enum": ["External", "Internal"],
+      "required": false,
+      "default": "Internal"
     },
     "target": {
       "type": "enumeration",
-      "enum": [
-        "_blank",
-        "_self"
-      ]
+      "enum": ["_blank", "_self"],
+      "required": false,
+      "default": "_self"
     },
     "icon": {
       "type": "string",

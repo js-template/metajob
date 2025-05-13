@@ -2,13 +2,14 @@
   "collectionName": "components_header_top_bars",
   "info": {
     "displayName": "Top Bar",
-    "icon": "bars"
+    "icon": "bars",
+    "description": "Top bar for additional information and links"
   },
-  "options": {},
   "attributes": {
     "left_content": {
       "type": "text",
-      "required": false
+      "required": false,
+      "default": "Text Here"
     },
     "right_content": {
       "type": "component",

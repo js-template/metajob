@@ -1,44 +1,42 @@
 {
-  "collectionName": "components_block_review_blocks",
+  "collectionName": "components_block_reviews",
   "info": {
     "displayName": "Review Block",
-    "icon": "star"
+    "icon": "star",
+    "description": "A block for displaying multiple reviews with customizable options."
   },
+  "category": "Blocks",
+  "modelName": "review-block",
+  "globalId": "ComponentsBlockReviews",
+  "uid": "block.review-block",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "content": {
       "type": "component",
       "repeatable": false,
       "component": "config.section-title"
     },
-    "reviews": {
+    "button": {
       "type": "component",
-      "repeatable": true,
-      "component": "config.review-card"
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "variation": {
+      "type": "enumeration",
+      "enum": ["default", "compact", "detailed"],
+      "default": "default"
     },
     "empty": {
       "type": "component",
       "repeatable": false,
       "component": "shared.empty"
     },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "config.link"
-    },
     "style": {
       "type": "component",
       "repeatable": false,
       "component": "config.style-section"
-    },
-    "variation": {
-      "type": "enumeration",
-      "enum": [
-        "default",
-        "compact",
-        "detailed"
-      ],
-      "default": "default"
     }
   }
 }

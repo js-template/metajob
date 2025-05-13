@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_metajob_block_job_categories",
+  "info": {
+    "displayName": "Job Category",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "card_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "item_count": {
+      "type": "integer",
+      "default": 12,
+      "min": 1,
+      "max": 24
+    },
+    "icon_type": {
+      "type": "enumeration",
+      "enum": ["Icon Bg", "Simple"],
+      "required": false,
+      "default": "Icon Bg"
+    },
+    "show_description": {
+      "type": "boolean",
+      "default": false
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

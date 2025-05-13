@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_metajob_config_table_configs",
+  "info": {
+    "displayName": "Table Config",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "default": "Name"
+    },
+    "default_data_count": {
+      "type": "integer",
+      "default": 10,
+      "max": 50,
+      "min": 1
+    },
+    "search_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Search"
+    },
+    "enable_search": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "enable_edit": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "enable_delete": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "per_page_placeholder": {
+      "type": "string",
+      "default": "Showing per page"
+    }
+  }
+}

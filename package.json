@@ -9,11 +9,13 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
+    "@jstemplate/metajob-theme": "^1.0.0",
     "@padmadev/blank-theme": "0.0.1-alpha.3",
     "@padmadev/padma": "workspace:*"
   },
   "devDependencies": {
-    "prettier": "latest"
+    "prettier": "latest",
+    "turbo": "latest"
   },
   "engines": {
     "node": ">=20.0.0"

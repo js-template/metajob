@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_metajob_block_pricings",
+  "info": {
+    "displayName": "Pricing",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "default": "Description Here"
+    },
+    "price": {
+      "type": "string",
+      "required": false,
+      "default": "00"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "table": {
+      "type": "component",
+      "repeatable": true,
+      "component": "metajob-config.meta-data"
+    }
+  }
+}

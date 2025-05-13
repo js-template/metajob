@@ -2,9 +2,9 @@
   "collectionName": "components_block_banners",
   "info": {
     "displayName": "Banner",
-    "icon": "image"
+    "icon": "image",
+    "description": "Banner component with advanced text, style, and layout options"
   },
-  "options": {},
   "attributes": {
     "content": {
       "type": "component",

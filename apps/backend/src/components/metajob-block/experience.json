@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_metajob_block_experiences",
+  "info": {
+    "displayName": "Experience",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "default": "Description Here"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "institution": {
+      "type": "string",
+      "required": false,
+      "default": "Institution"
+    }
+  }
+}

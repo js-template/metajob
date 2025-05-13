@@ -2,9 +2,16 @@
   "collectionName": "components_block_image_carousels",
   "info": {
     "displayName": "Image Carousel",
-    "icon": "images"
+    "icon": "images",
+    "description": "Carousel component with configurable cards and styling options."
   },
+  "category": "Blocks",
+  "modelName": "image-carousel",
+  "globalId": "ComponentsBlockImageCarousels",
+  "uid": "block.image-carousel",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "cards": {
       "type": "component",
@@ -30,12 +37,7 @@
     },
     "variation": {
       "type": "enumeration",
-      "enum": [
-        "default",
-        "fade",
-        "slide",
-        "zoom"
-      ],
+      "enum": ["default", "fade", "slide", "zoom"],
       "default": "default"
     }
   }

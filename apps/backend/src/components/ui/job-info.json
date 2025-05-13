@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_ui_job_infos",
+  "info": {
+    "displayName": "Job Info",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text"
+    },
+    "profilePicture": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

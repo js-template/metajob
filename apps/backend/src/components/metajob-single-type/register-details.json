@@ -1,0 +1,95 @@
+{
+  "collectionName": "components_metajob_single_type_register_details",
+  "info": {
+    "displayName": "Register Details",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Create an account"
+    },
+    "username_title": {
+      "type": "string",
+      "required": false,
+      "default": "Username"
+    },
+    "username_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Enter Username"
+    },
+    "email_title": {
+      "type": "string",
+      "required": false,
+      "default": "Email"
+    },
+    "email_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Your Email"
+    },
+    "password_title": {
+      "type": "string",
+      "required": false,
+      "default": "Password"
+    },
+    "password_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Enter Password"
+    },
+    "confirm_password_title": {
+      "type": "string",
+      "required": false,
+      "default": "Confirm Password"
+    },
+    "confirm_password_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Enter Confirm Password"
+    },
+    "required_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "This field is required"
+    },
+    "button_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Register"
+    },
+    "login_helper_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Already have account ?"
+    },
+    "login_link_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Login"
+    },
+    "or_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "OR"
+    },
+    "provider_option": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

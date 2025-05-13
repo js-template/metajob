@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_metajob_config_relations",
+  "info": {
+    "displayName": "Relations",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "relationId": {
+      "type": "integer",
+      "required": false
+    }
+  }
+}

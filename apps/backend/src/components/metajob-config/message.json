@@ -1,0 +1,62 @@
+{
+  "collectionName": "components_metajob_config_messages",
+  "info": {
+    "displayName": "Message",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Messages"
+    },
+    "enableSearch": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "empty_messages": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty",
+      "required": true
+    },
+    "empty_chat": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty",
+      "required": true
+    },
+    "saveButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "Save"
+    },
+    "editActionText": {
+      "type": "string",
+      "default": "Edit",
+      "required": true
+    },
+    "copyActionText": {
+      "type": "string",
+      "required": true,
+      "default": "Copy"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "required": true,
+      "default": "Search"
+    },
+    "sendMessagePlaceholder": {
+      "type": "string",
+      "required": true,
+      "default": "Type Something"
+    },
+    "cancelButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "Cancel"
+    }
+  }
+}

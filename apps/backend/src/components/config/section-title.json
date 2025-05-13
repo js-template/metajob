@@ -7,17 +7,19 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
     },
     "sub_title": {
-      "type": "text"
+      "type": "text",
+      "required": false,
+      "default": "Sub Title Here"
     },
     "variation": {
       "type": "enumeration",
-      "enum": [
-        "Variation One",
-        "Variation Two"
-      ]
+      "enum": ["Variation One", "Variation Two"],
+      "required": false
     }
   }
 }

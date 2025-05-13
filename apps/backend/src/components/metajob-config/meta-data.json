@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_metajob_config_meta_data",
+  "info": {
+    "displayName": "Meta Data",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "default": "key"
+    },
+    "value": {
+      "type": "string",
+      "default": "value"
+    }
+  }
+}

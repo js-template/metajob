@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_metajob_block_candidate_filters",
+  "info": {
+    "displayName": "Candidate Filter",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    },
+    "search": {
+      "type": "component",
+      "repeatable": false,
+      "component": "metajob-config.search-config"
+    },
+    "result_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Total candidate found"
+    },
+    "upload_resume_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "card_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

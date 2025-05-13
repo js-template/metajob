@@ -2,32 +2,47 @@
   "collectionName": "components_config_menus",
   "info": {
     "displayName": "Menu",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
+  "category": "Public Config",
+  "modelName": "menu",
+  "globalId": "ComponentsConfigMenus",
+  "uid": "config.menu",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "label": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "Label"
     },
     "link": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "#"
     },
     "type": {
       "type": "enumeration",
-      "enum": ["External", "Internal"]
+      "enum": ["External", "Internal"],
+      "required": false,
+      "default": "Internal"
     },
     "target": {
       "type": "enumeration",
-      "enum": ["_blank", "_self"]
+      "enum": ["_blank", "_self"],
+      "required": false,
+      "default": "_self"
     },
     "icon": {
       "type": "string",
+      "required": false,
       "default": "bx:smile"
     },
     "disabled": {
       "type": "boolean",
+      "required": false,
       "default": false
     },
     "child": {
@@ -36,7 +51,8 @@
       "component": "config.link"
     },
     "identifier": {
-      "type": "string"
+      "type": "string",
+      "required": false
     }
   }
 }

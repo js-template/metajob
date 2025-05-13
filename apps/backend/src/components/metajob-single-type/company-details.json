@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_metajob_single_type_company_details",
+  "info": {
+    "displayName": "Company Details",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Company details"
+    },
+    "info_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Company Info"
+    },
+    "industry_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Industry"
+    },
+    "size_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Company Size"
+    },
+    "salary_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "AVG. Salary"
+    },
+    "open_jobs_title": {
+      "type": "string",
+      "required": false,
+      "default": "Open Job"
+    },
+    "card_button": {
+      "type": "string",
+      "required": false,
+      "default": "Apply Now"
+    },
+    "open_jobs": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "show_header": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

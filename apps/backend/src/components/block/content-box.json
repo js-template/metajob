@@ -2,9 +2,16 @@
   "collectionName": "components_block_content_boxes",
   "info": {
     "displayName": "Content Box",
-    "icon": "box"
+    "icon": "box",
+    "description": "A content box with text, icons, and style options."
   },
+  "category": "Blocks",
+  "modelName": "content-box",
+  "globalId": "ComponentsBlockContentBoxes",
+  "uid": "block.content-box",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "content": {
       "type": "component",

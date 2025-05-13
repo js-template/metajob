@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_widget_applied_lists",
+  "info": {
+    "displayName": "Applied Job",
+    "icon": "oneToOne",
+    "description": ""
+  },
+  "options": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "details": {
+      "type": "component",
+      "repeatable": false,
+      "component": "widget.count-card"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

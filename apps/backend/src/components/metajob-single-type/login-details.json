@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_metajob_single_type_login_details",
+  "info": {
+    "displayName": "Login Details",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Sign in with Email address"
+    },
+    "email_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Username or Email"
+    },
+    "password_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Password"
+    },
+    "required_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "This field is required"
+    },
+    "button_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Sign in"
+    },
+    "or_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "OR"
+    },
+    "signup_helper_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Not a Member ?"
+    },
+    "signup_link_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Create Account"
+    },
+    "provider_option": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

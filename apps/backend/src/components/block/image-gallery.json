@@ -1,10 +1,17 @@
 {
-  "collectionName": "components_block_image_galleries",
+  "collectionName": "components_block_image_gallery",
   "info": {
     "displayName": "Image Gallery",
-    "icon": "gallery"
+    "icon": "gallery",
+    "description": "A component for displaying multiple images in various layouts."
   },
+  "category": "Blocks",
+  "modelName": "image-gallery",
+  "globalId": "ComponentsBlockImageGallery",
+  "uid": "block.image-gallery",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "content": {
       "type": "component",
@@ -13,15 +20,11 @@
     },
     "variation": {
       "type": "enumeration",
-      "enum": [
-        "grid",
-        "masonry",
-        "carousel",
-        "grid-with-title"
-      ],
+      "enum": ["grid", "masonry", "carousel", "grid-with-title"],
       "default": "grid",
       "required": true
     },
+
     "images": {
       "type": "media",
       "multiple": true,

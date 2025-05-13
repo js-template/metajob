@@ -1,36 +1,83 @@
 {
-  "collectionName": "components_config_style_sections",
+  "collectionName": "components_component_style_sections",
   "info": {
     "displayName": "Style Section",
-    "icon": "arrowUp"
+    "icon": "arrowUp",
+    "description": ""
   },
+  "category": "config",
+  "modelName": "style-section",
+  "globalId": "ComponentsComponentStyleSections",
+  "uid": "config.style-section",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
+    "header_color": {
+      "type": "string",
+      "required": false
+    },
+    "sub_header_color": {
+      "type": "string",
+      "required": false
+    },
     "color": {
-      "type": "string"
+      "type": "string",
+      "required": false
+    },
+    "secondary_color": {
+      "type": "string",
+      "required": false
     },
     "backgroundColor": {
       "type": "string"
+    },
+    "header_bg_color": {
+      "type": "string",
+      "required": false
+    },
+    "bg_overlay": {
+      "type": "decimal",
+      "max": 1,
+      "min": 0,
+      "default": 0.6
+    },
+    "header_width": {
+      "type": "enumeration",
+      "enum": ["Full", "Small"],
+      "required": false,
+      "default": "Small"
     },
     "mobile": {
       "type": "integer",
       "max": 12,
       "min": 1,
       "default": 12,
-      "required": true
+      "required": false
     },
     "tab": {
       "type": "integer",
       "min": 1,
-      "default": 12,
-      "required": true
+      "default": 4,
+      "required": false
     },
     "desktop": {
       "type": "integer",
       "max": 12,
       "min": 1,
-      "default": 12,
-      "required": true
+      "default": 4,
+      "required": false
+    },
+    "section_padding": {
+      "type": "integer",
+      "max": 100,
+      "min": 0,
+      "required": false
+    },
+    "sidebar": {
+      "type": "enumeration",
+      "enum": ["Left Sidebar", "Right Sidebar", "No Sidebar"],
+      "required": false
     }
   }
 }

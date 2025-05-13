@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_widget_count_cards",
+  "info": {
+    "displayName": "Count Card",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    },
+    "subTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Sub Title Here"
+    },
+    "link": {
+      "type": "string",
+      "required": false
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": ["_self", "_blank", "_parent", "_top"],
+      "default": "_self"
+    }
+  }
+}

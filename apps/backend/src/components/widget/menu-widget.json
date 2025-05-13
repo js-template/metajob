@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_widget_menu_widgets",
+  "collectionName": "components_footer_menu_widgets",
   "info": {
     "displayName": "Menu Widget",
     "icon": "arrowDown"
@@ -7,7 +7,9 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Title"
     },
     "menu_items": {
       "type": "component",

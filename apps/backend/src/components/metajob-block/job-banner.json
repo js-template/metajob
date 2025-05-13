@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_metajob_block_job_banners",
+  "info": {
+    "displayName": "Job Banner",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "search": {
+      "type": "component",
+      "repeatable": false,
+      "component": "metajob-config.search-config"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "show_count": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "job_count_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Job Available"
+    },
+    "company_count_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Company"
+    },
+    "resume_count_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Employee Available"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

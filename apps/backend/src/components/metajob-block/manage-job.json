@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_metajob_block_manage_jobs",
+  "info": {
+    "displayName": "Manage Job",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "default": "Description Here"
+    },
+    "add_button_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Add Job"
+    },
+    "table_config": {
+      "type": "component",
+      "repeatable": false,
+      "component": "metajob-config.table-config"
+    },
+    "table_head": {
+      "type": "component",
+      "repeatable": true,
+      "component": "metajob-config.meta-data"
+    },
+    "apply_table_head": {
+      "type": "component",
+      "repeatable": true,
+      "component": "metajob-config.meta-data"
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

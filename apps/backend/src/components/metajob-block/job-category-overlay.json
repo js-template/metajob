@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_metajob_block_job_categories_overlay",
+  "info": {
+    "displayName": "Job Category Overlay",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "show_description": {
+      "type": "boolean",
+      "default": true
+    },
+    "show_icon": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlay": {
+      "type": "boolean",
+      "default": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "item_count": {
+      "type": "integer",
+      "default": 12,
+      "min": 1,
+      "max": 24
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

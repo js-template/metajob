@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_metajob_block_error_sections",
+  "info": {
+    "displayName": "Error Section",
+    "icon": "collapse",
+    "description": "Error section block"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "button_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Reload"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "metajob-config.error-style"
+    }
+  }
+}

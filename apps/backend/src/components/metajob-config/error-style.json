@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_component_error_style",
+  "info": {
+    "displayName": "Error Style",
+    "icon": "arrowUp",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header_color": {
+      "type": "string"
+    },
+    "sub_header_color": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "section_padding": {
+      "type": "integer",
+      "max": 100,
+      "min": 0
+    }
+  }
+}

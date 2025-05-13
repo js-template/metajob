@@ -4,7 +4,13 @@
     "displayName": "spacing",
     "icon": "oneToOne"
   },
+  "category": "shared",
+  "modelName": "spacing",
+  "globalId": "ComponentsSharedSpacings",
+  "uid": "shared.spacing",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "gap": {
       "type": "integer",

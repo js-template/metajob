@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_metajob_config_search_configs",
+  "info": {
+    "displayName": "Search Config",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Search Title"
+    },
+    "search_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Search"
+    },
+    "location_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Location"
+    },
+    "category_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Category"
+    },
+    "experience_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Experience"
+    },
+    "type_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Type"
+    },
+    "skill_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Skills"
+    },
+    "sort_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Sort"
+    },
+    "button_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Search"
+    },
+    "mobile_filter_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Filter"
+    }
+  }
+}

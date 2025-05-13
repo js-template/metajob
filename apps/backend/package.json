@@ -6,12 +6,13 @@
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
-    "develop": "strapi develop",
+    "dev": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
+    "@jstemplate/metajob-backend": "^0.0.14",
     "@padmadev/padma-backend": "^0.0.6-alpha.2",
     "@strapi/plugin-users-permissions": "5.4.0",
     "@strapi/provider-upload-cloudinary": "^5.4.1",

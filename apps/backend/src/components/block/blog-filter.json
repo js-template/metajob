@@ -13,10 +13,24 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Title Here"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": false,
+      "default": "Description Here"
+    },
+    "search_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Search"
+    },
+    "card_button": {
+      "type": "string",
+      "required": false,
+      "default": "Read More"
     },
     "empty": {
       "type": "component",

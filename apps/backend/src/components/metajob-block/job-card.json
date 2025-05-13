@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_metajob_block_job_cards",
+  "info": {
+    "displayName": "Job Card",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "vacancy_placeholder": {
+      "type": "string",
+      "default": "Vacancy"
+    },
+    "card_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.link"
+    },
+    "item_count": {
+      "type": "integer",
+      "default": 6,
+      "min": 1,
+      "max": 18
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

@@ -15,17 +15,20 @@
     "socialNetwork": {
       "type": "enumeration",
       "enum": ["Facebook", "Twitter"],
-      "required": true
+      "required": true,
+      "default": "Facebook"
     },
     "title": {
       "type": "string",
       "required": true,
-      "maxLength": 60
+      "maxLength": 60,
+      "default": "Title Here"
     },
     "description": {
       "type": "string",
       "maxLength": 65,
-      "required": true
+      "required": true,
+      "default": "Description Here"
     },
     "image": {
       "allowedTypes": ["images", "files", "videos"],

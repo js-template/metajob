@@ -1,0 +1,90 @@
+{
+  "collectionName": "components_metajob_single_type_job_details",
+  "info": {
+    "displayName": "Job Details",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Job details"
+    },
+    "share_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Share on"
+    },
+    "apply_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Apply Now"
+    },
+    "skill_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Skills"
+    },
+    "overview_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Job Overview"
+    },
+    "posted_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Job Posted"
+    },
+    "deadline_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Deadline"
+    },
+    "type_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Job Type"
+    },
+    "salary_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Salary"
+    },
+    "related_jobs_title": {
+      "type": "string",
+      "required": false,
+      "default": "Related Jobs"
+    },
+    "related_jobs_subtitle": {
+      "type": "string",
+      "required": false,
+      "default": "Latest Related Jobs For You"
+    },
+    "card_button": {
+      "type": "string",
+      "required": false,
+      "default": "Apply Now"
+    },
+    "related_lists": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "show_header": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

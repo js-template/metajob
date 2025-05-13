@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_block_latest_applieds",
+  "info": {
+    "displayName": "Latest Applied",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "column_1": {
+      "type": "string"
+    },
+    "column_2": {
+      "type": "string"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    }
+  }
+}

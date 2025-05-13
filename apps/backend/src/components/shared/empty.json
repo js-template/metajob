@@ -1,10 +1,17 @@
 {
   "collectionName": "components_shared_empties",
   "info": {
-    "displayName": "Empty",
-    "icon": "archive"
+    "displayName": "Empty State",
+    "icon": "archive",
+    "description": ""
   },
+  "category": "shared",
+  "modelName": "empty",
+  "globalId": "ComponentsSharedEmpties",
+  "uid": "shared.empty",
+  "modelType": "component",
   "options": {},
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",

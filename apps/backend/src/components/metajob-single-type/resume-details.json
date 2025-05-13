@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_metajob_single_type_resume_details",
+  "info": {
+    "displayName": "Resume Details",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Resume details"
+    },
+    "open_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Open To Work"
+    },
+    "industry_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Industry"
+    },
+    "member_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Member Since"
+    },
+    "about_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "About Me"
+    },
+    "education_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Education"
+    },
+    "experience_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Experience"
+    },
+    "portfolio_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Portfolio"
+    },
+    "show_header": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

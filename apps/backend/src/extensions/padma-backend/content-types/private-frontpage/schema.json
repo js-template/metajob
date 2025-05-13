@@ -1,0 +1,79 @@
+{
+  "kind": "singleType",
+  "collectionName": "private_frontpage",
+  "info": {
+    "singularName": "private-frontpage",
+    "pluralName": "private-frontpages",
+    "displayName": "Private Frontpage",
+    "description": "Public Static Frontpage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Dashboard"
+    },
+    "role1": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.role"
+    },
+    "role1Components": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.spacing",
+        "widget.count-card",
+        "widget.closed-job",
+        "widget.applied-list",
+        "widget.favorite-list",
+        "widget.matched-list",
+        "block.notification-list",
+        "block.bookmark-list"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "role2": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.role"
+    },
+    "role2Components": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.spacing",
+        "widget.total-job",
+        "widget.open-job",
+        "widget.favorite-list",
+        "widget.closed-job",
+        "block.notification-list",
+        "block.bookmark-list"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.grid-container"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

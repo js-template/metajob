@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_metajob_block_category_filters",
+  "info": {
+    "displayName": "Category Filter",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.section-title"
+    },
+    "search_placeholder": {
+      "type": "string",
+      "required": false,
+      "default": "Search"
+    },
+    "card_button": {
+      "type": "string",
+      "required": false,
+      "default": "Find Jobs"
+    },
+    "icon_type": {
+      "type": "enumeration",
+      "enum": ["Icon Bg", "Simple"],
+      "required": false,
+      "default": "Icon Bg"
+    },
+    "show_description": {
+      "type": "boolean",
+      "default": true
+    },
+    "empty": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.empty"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "config.style-section"
+    }
+  }
+}

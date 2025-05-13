@@ -1,7 +1,8 @@
 export const settings = {
-  activeTheme: "@padmadev/blank-theme", // Default active theme
+  activeTheme: "@jstemplate/metajob-theme", // Default active theme
 };
 
 export const themeResolver: Record<string, () => Promise<any>> = {
   "@padmadev/blank-theme": () => import("@padmadev/blank-theme"),
+  "@jstemplate/metajob-theme": () => import("@jstemplate/metajob-theme"),
 };

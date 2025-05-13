@@ -2,7 +2,8 @@
   "collectionName": "components_header_header_bottoms",
   "info": {
     "displayName": "Header bottom",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {

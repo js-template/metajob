@@ -2,13 +2,19 @@
   "collectionName": "components_widget_copyright_bars",
   "info": {
     "displayName": "Copyright Bar",
-    "icon": "copyright"
+    "icon": "copyright",
+    "description": "Bottom-most section for copyright text"
   },
-  "options": {},
+  "category": "widget",
+  "modelName": "copyright_bar",
+  "globalId": "ComponentswidgetCopyrightBars",
+  "uid": "widget.copyright-bar",
+  "modelType": "component",
   "attributes": {
     "content": {
       "type": "text",
-      "required": true
+      "required": true,
+      "default": "Copyright Text Here"
     },
     "social_link": {
       "type": "component",

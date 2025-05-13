@@ -7,21 +7,14 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": false,
+      "default": "Blog details"
     },
     "style": {
       "type": "component",
       "repeatable": false,
       "component": "config.style-section"
-    },
-    "sidebar": {
-      "type": "enumeration",
-      "enum": [
-        "Left Sidebar",
-        "Right Sidebar",
-        "Both Sidebar",
-        "No Sidebar"
-      ]
     }
   }
 }
