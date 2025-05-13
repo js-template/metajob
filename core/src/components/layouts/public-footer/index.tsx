@@ -18,7 +18,12 @@ const PublicFooter = ({ blocks, getPublicComponents }: Props) => {
    return (
       <Stack
          sx={{
-            bgcolor: (theme) => (mode === "dark" ? theme.palette.background.paper : theme.palette.text.primary)
+            bgcolor: (theme) =>
+               mode === "dark"
+                  ? theme.palette.background.paper
+                  : mode === "light"
+                    ? theme.palette.text.primary
+                    : theme.palette.secondary.main
          }}>
          <Container maxWidth='lg' sx={{ py: 4 }}>
             {/* footer main widgets  */}

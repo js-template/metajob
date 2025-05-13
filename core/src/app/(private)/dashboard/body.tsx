@@ -4,7 +4,7 @@ import { Session } from "next-auth"
 
 interface BodyProps {
    blocks: any[]
-   styles?: {
+   style?: {
       columnSpacing: number | null
       rowSpacing: number | null
       spacing: number | null
@@ -17,18 +17,17 @@ interface BodyProps {
    currentThemeComponents: any
 }
 
-const Body: React.FC<BodyProps> = ({ blocks, styles, session, language, currentThemeComponents }) => {
-   console.log("blocks", blocks)
+const Body: React.FC<BodyProps> = ({ blocks, style, session, language, currentThemeComponents }) => {
    return (
       <>
          <Grid
             container
-            {...(styles?.columnSpacing && { columnSpacing: styles.columnSpacing })}
-            {...(styles?.rowSpacing && { rowSpacing: styles.rowSpacing })}
-            {...(styles?.spacing && { spacing: styles.spacing })}
-            {...(styles?.zeroMinWidth && { zeroMinWidth: styles.zeroMinWidth })}
-            {...(styles?.columns && { columns: styles.columns })}
-            {...(styles?.wrap && { wrap: styles.wrap })}
+            {...(style?.columnSpacing && { columnSpacing: style?.columnSpacing })}
+            {...(style?.rowSpacing && { rowSpacing: style?.rowSpacing })}
+            {...(style?.spacing && { spacing: style?.spacing })}
+            {...(style?.zeroMinWidth && { zeroMinWidth: style?.zeroMinWidth })}
+            {...(style?.columns && { columns: style?.columns })}
+            {...(style?.wrap && { wrap: style?.wrap })}
             sx={{ mb: 4 }}>
             {blocks?.map((block: { __component: keyof typeof currentThemeComponents }, index: number) => {
                const BlockConfig = currentThemeComponents[block.__component]

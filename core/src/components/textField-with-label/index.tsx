@@ -29,12 +29,7 @@ export default function TextFieldWithLabel({
 }: ITextFieldWithLabel) {
    return (
       <FormControl fullWidth={fullWidth}>
-         <Typography
-            fontSize={14}
-            fontWeight={400}
-            color={(theme) => theme.palette.text.primary}
-            pb={1}
-            {...labelProps}>
+         <Typography fontSize={14} fontWeight={400} pb={1} {...labelProps}>
             {label}{" "}
             {required && (
                <Typography component='span' color='error'>

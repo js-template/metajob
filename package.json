@@ -1,17 +1,19 @@
 {
-  "name": "padma-monorepo",
-  "description": "Padma - The Next.js Framework for Strapi",
-  "version": "0.0.4",
-  "private": true,
+  "name": "metajob",
+  "version": "2.0.0",
+  "description": "Full Stack Job Portal Solution using Nextjs and Strapi",
+  "main": "index.js",
   "scripts": {
-    "dev": "turbo dev",
     "build": "turbo build",
+    "dev": "turbo dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
-    "@jstemplate/metajob-theme": "^1.0.0",
-    "@padmadev/blank-theme": "0.0.1-alpha.3",
-    "@padmadev/padma": "workspace:*"
+     "@changesets/cli": "^2.28.1",
+    "@jstemplate/metajob-theme": "1.0.0",
+    "@padmadev/blank-theme": "0.0.1-alpha.3"
   },
   "devDependencies": {
     "prettier": "latest",

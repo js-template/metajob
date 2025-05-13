@@ -4,11 +4,12 @@ The **LoginCard** component a auth login page collect user from info and trigger
 
 ## Props
 
--  `loginHandler`: A function that will receive data having `username`, `password` properties.
--  `googleLoginHandler`: A function that will be triggered when goggle icon button clicked.
--  `facebookLoginHandler`: A function that will be triggered when facebook icon button clicked.
--  `linkedinLoginHandler`: A function that will be triggered when linkedin icon button clicked.
--  `loading`: A boolean value for login loader.
+- `loginHandler`: A function that will receive data having `username`, `password` properties.
+- `googleLoginHandler`: A function that will be triggered when goggle icon button clicked.
+- `facebookLoginHandler`: A function that will be triggered when facebook icon button clicked.
+- `linkedinLoginHandler`: A function that will be triggered when linkedin icon button clicked.
+- `loading`: A boolean value for login loader.
+- `block`: A block data of `ILoginBLock` types.
 
 ## Usage
 
@@ -21,7 +22,6 @@ The **LoginCard** component a auth login page collect user from info and trigger
 import LoginCard from "@padma/metajob-ui"
 
 const loginHandler = (data: { username: string; password: string }) => {
-   // console.log(data)
 }
 const googleLoginHandler = () => {
    //  google login function here
@@ -33,7 +33,13 @@ const linkedinLoginHandler = () => {
    //  linkedin login function here
 }
 
-<SignUpCard loading={loading} loginHandler={loginHandler} googleSignUpHandler={googleLoginHandler} facebookLoginHandler {facebookLoginHandler} linkedinLoginHandler={linkedinLoginHandler}
+const blockData ={
+   title: "Sign in with Email address",
+   ...
+//   other value from  ILoginBLock type
+}
+
+<SignUpCard block={blockData} loading={loading} loginHandler={loginHandler} googleSignUpHandler={googleLoginHandler} facebookLoginHandler {facebookLoginHandler} linkedinLoginHandler={linkedinLoginHandler}
 />
 
 ```

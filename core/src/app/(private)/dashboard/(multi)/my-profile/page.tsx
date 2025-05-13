@@ -7,7 +7,7 @@ import { loadActiveTheme } from "config/theme-loader"
 export default async function ProfilePage() {
    const session = await auth()
    // fetch the language from cookies or session
-   const language = getLanguageFromCookie()
+   const language = await getLanguageFromCookie()
 
    // *** If the user role is not an candidate or employer, redirect to the dashboard
    if (session?.user?.role?.type !== "candidate" && session?.user?.role?.type !== "employer") {
@@ -22,13 +22,12 @@ export default async function ProfilePage() {
 
    if (activeTheme) {
       getPrivateComponents = activeTheme.getPrivateComponents
-      // console.log(getPrivateComponents)
    } else {
       console.error("Active theme could not be loaded!")
    }
 
    return (
-      <Fragment>
+      <>
          {/* Render the components dynamically using blockComponentMapping */}
          {[{ __component: "block.auth-profile" }]?.map((block: any, index: number) => {
             // @ts-ignore
@@ -41,6 +40,6 @@ export default async function ProfilePage() {
             }
             return null
          })}
-      </Fragment>
+      </>
    )
 }

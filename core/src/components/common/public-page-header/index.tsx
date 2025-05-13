@@ -40,7 +40,9 @@ export default function PageHeader({ title }: { title: string }) {
                fontSize={{ sm: 48, xs: 32 }}
                fontWeight={{ sm: 700, xs: 600 }}
                variant={"h1"}
-               color={(theme) => theme.palette.primary.contrastText}>
+               sx={{
+                  color: (theme) => theme.palette.primary.contrastText
+               }}>
                {title}
             </Typography>
          </Stack>
