@@ -1,11 +1,13 @@
 "use client"
 import React from "react"
 import Link from "next/link"
+import { useTheme } from "next-themes"
 import { useForm } from "react-hook-form"
 import LoadingButton from "@mui/lab/LoadingButton"
 import { Box, Button, Divider, Grid, IconButton, Paper, TextField, Typography } from "@mui/material"
 import { hexToRGBA } from "../../lib/hex-to-rgba"
 import CIcon from "../common/icon"
+import { ILoginBLock } from "./types"
 
 type Props = {
    loginHandler?: (data: { username: string; password: string }) => void
@@ -13,6 +15,7 @@ type Props = {
    facebookLoginHandler?: () => void
    linkedinLoginHandler?: () => void
    loading?: boolean
+   block: ILoginBLock
 }
 
 export const LoginCard = ({
@@ -20,8 +23,26 @@ export const LoginCard = ({
    loading,
    googleLoginHandler,
    facebookLoginHandler,
-   linkedinLoginHandler
+   linkedinLoginHandler,
+   block
 }: Props) => {
+   const { theme: mode } = useTheme()
+   // destructured login block data
+   const {
+      title: loginTitle,
+      email_placeholder,
+      password_placeholder,
+      required_placeholder,
+      button_placeholder,
+      or_placeholder,
+      provider_option,
+      signup_helper_placeholder,
+      signup_link_placeholder,
+      style
+   } = block || {}
+
+   const { backgroundColor, color, secondary_color, section_padding } = style || {}
+
    const {
       register,
       handleSubmit,
@@ -42,11 +63,19 @@ export const LoginCard = ({
    }
 
    //    provider present validator
-   const noProvider = !googleLoginHandler && !facebookLoginHandler && !linkedinLoginHandler
+   // const noProvider = !googleLoginHandler && !facebookLoginHandler && !linkedinLoginHandler
 
    return (
-      <Grid container direction='column' justifyContent='flex-end' sx={{ minHeight: "85vh" }}>
-         <Grid item xs={12}>
+      <Grid
+         container
+         direction='column'
+         justifyContent='flex-end'
+         sx={{
+            minHeight: "85vh",
+            bgcolor: (theme) =>
+               mode === "light" ? backgroundColor || theme.palette.background.default : theme.palette.background.default
+         }}>
+         <Grid item xs={12} py={section_padding || 3}>
             <Grid container justifyContent='center' alignItems='center' sx={{ minHeight: "calc(100vh - 68px)" }}>
                <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
                   <Grid container spacing={2} alignItems='center' justifyContent='center'>
@@ -71,8 +100,13 @@ export const LoginCard = ({
                                     <Typography
                                        fontSize={24}
                                        fontWeight={400}
-                                       color={(theme) => theme.palette.text.primary}>
-                                       Sign in with Email address
+                                       sx={{
+                                          color: (theme) =>
+                                             mode === "light"
+                                                ? color || theme.palette.text.primary
+                                                : theme.palette.text.primary
+                                       }}>
+                                       {loginTitle || "Sign in with Email address"}
                                     </Typography>
                                  </Box>
 
@@ -92,12 +126,12 @@ export const LoginCard = ({
                                        hiddenLabel
                                        id='username'
                                        defaultValue=''
-                                       placeholder='Username or Email'
+                                       placeholder={email_placeholder || "Username or Email"}
                                        variant='outlined'
                                        size='medium'
                                        fullWidth
                                        {...register("username", {
-                                          required: "This field is required"
+                                          required: required_placeholder || "This field is required"
                                        })}
                                        helperText={errors.username?.message}
                                        error={!!errors.username}
@@ -105,14 +139,14 @@ export const LoginCard = ({
                                     <TextField
                                        hiddenLabel
                                        id='password'
-                                       placeholder='Password'
+                                       placeholder={password_placeholder || "Password"}
                                        defaultValue=''
                                        variant='outlined'
                                        size='medium'
                                        type='password'
                                        fullWidth
                                        {...register("password", {
-                                          required: "This field is required"
+                                          required: required_placeholder || "This field is required"
                                        })}
                                        helperText={errors.password?.message}
                                        error={!!errors.password}
@@ -125,12 +159,12 @@ export const LoginCard = ({
                                        size='large'
                                        fullWidth
                                        sx={{ mt: 2 }}>
-                                       Sign in
+                                       {button_placeholder || "Sign in"}
                                     </LoadingButton>
                                  </Box>
                               </Grid>
                               {/* providers title  */}
-                              {!noProvider && (
+                              {provider_option && (
                                  <Grid item xs={12}>
                                     <Box
                                        sx={{
@@ -140,7 +174,11 @@ export const LoginCard = ({
                                        <Divider
                                           sx={{
                                              flexGrow: 1,
-                                             borderColor: (theme) => hexToRGBA(theme.palette.text.disabled, 0.4)
+                                             borderColor: (theme) =>
+                                                mode === "light"
+                                                   ? hexToRGBA(secondary_color || theme.palette.text.disabled, 0.4) ||
+                                                     hexToRGBA(theme.palette.text.disabled, 0.4)
+                                                   : hexToRGBA(theme.palette.text.disabled, 0.4)
                                           }}
                                           orientation='horizontal'
                                        />
@@ -157,20 +195,34 @@ export const LoginCard = ({
                                              // disable color
                                              "&.Mui-disabled": {
                                                 borderColor: (theme) =>
-                                                   hexToRGBA(theme.palette.text.disabled, 0.4) + "!important",
+                                                   mode === "light"
+                                                      ? hexToRGBA(
+                                                           secondary_color || theme.palette.text.disabled,
+                                                           0.4
+                                                        ) || hexToRGBA(theme.palette.text.disabled, 0.4)
+                                                      : hexToRGBA(theme.palette.text.disabled, 0.4),
                                                 color: (theme) =>
-                                                   hexToRGBA(theme.palette.text.disabled, 0.4) + "!important"
+                                                   mode === "light"
+                                                      ? hexToRGBA(
+                                                           secondary_color || theme.palette.text.disabled,
+                                                           0.4
+                                                        ) || hexToRGBA(theme.palette.text.disabled, 0.4)
+                                                      : hexToRGBA(theme.palette.text.disabled, 0.4)
                                              }
                                           }}
                                           disableRipple
                                           disabled>
-                                          OR
+                                          {or_placeholder || "OR"}
                                        </Button>
 
                                        <Divider
                                           sx={{
                                              flexGrow: 1,
-                                             borderColor: (theme) => hexToRGBA(theme.palette.text.disabled, 0.4)
+                                             borderColor: (theme) =>
+                                                mode === "light"
+                                                   ? hexToRGBA(secondary_color || theme.palette.text.disabled, 0.4) ||
+                                                     hexToRGBA(theme.palette.text.disabled, 0.4)
+                                                   : hexToRGBA(theme.palette.text.disabled, 0.4)
                                           }}
                                           orientation='horizontal'
                                        />
@@ -178,7 +230,7 @@ export const LoginCard = ({
                                  </Grid>
                               )}
                               {/* login providers  */}
-                              {!noProvider && (
+                              {provider_option && (
                                  <Box
                                     sx={{
                                        display: "flex",
@@ -257,25 +309,28 @@ export const LoginCard = ({
                               )}
                               <Typography
                                  variant='body2'
-                                 color={(theme) => theme.palette.text.secondary}
                                  fontSize={14}
                                  fontWeight={400}
                                  sx={{
                                     mt: 2,
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    color: (theme) =>
+                                       mode === "light"
+                                          ? secondary_color || theme.palette.text.secondary
+                                          : theme.palette.text.secondary
                                  }}>
-                                 Not a Member ?{" "}
+                                 {signup_helper_placeholder || "Not a Member ?"}{" "}
                                  <Typography
                                     component={Link}
                                     href='/register'
-                                    color={(theme) => theme.palette.primary.main}
                                     fontSize={14}
                                     fontWeight={400}
                                     sx={{
                                        textDecoration: "none",
-                                       cursor: "pointer"
+                                       cursor: "pointer",
+                                       color: (theme) => theme.palette.primary.main
                                     }}>
-                                    Create Account
+                                    {signup_link_placeholder || "Create Account"}
                                  </Typography>
                               </Typography>
                            </Grid>

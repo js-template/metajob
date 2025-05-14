@@ -118,10 +118,9 @@ export const findOne = async (
       const data = await response.json()
       return { data, error: null }
    } catch (error: any) {
-      console.error(`Error during API call: ${error.message}`)
       return {
          data: null,
-         error: error.message || "An error occurred during data fetch"
+         error: error || "An error occurred during data fetch"
       }
    }
 }
@@ -139,43 +138,43 @@ export const findOne = async (
 export const find = async (
    model: string,
    query: any = {},
-   cache: "force-cache" | "no-cache" | "no-store" = "force-cache",
-   revalidate?: number
+   cacheOverride: "force-cache" | "no-cache" | "no-store" = "force-cache",
+   revalidateOverride?: number
 ) => {
    const queryString = qs.stringify(query, {
       arrayFormat: "indices",
       encode: false,
       indices: false
    })
+   const url = `${apiUrl}/${model}/?${queryString}`
 
    try {
+      const defaultCache =
+         (process.env.NEXT_PUBLIC_DEFAULT_CACHE_BEHAVIOR as "force-cache" | "no-store" | "no-cache") || "force-cache"
+      const defaultRevalidate = process.env.NEXT_PUBLIC_DEFAULT_REVALIDATE_SECONDS
+         ? parseInt(process.env.NEXT_PUBLIC_DEFAULT_REVALIDATE_SECONDS)
+         : undefined
+
+      const cache = cacheOverride || defaultCache
+      const revalidate = revalidateOverride ?? defaultRevalidate
+
       const response = await fetch(`${apiUrl}/${model}/?${queryString}`, {
          method: "GET",
          headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${process.env.STRAPI_AUTH_TOKEN}`
          },
-         ...{
-            ...(revalidate ? {} : { cache }),
-            ...(revalidate
-               ? {
-                    next: {
-                       revalidate: revalidate
-                    }
-                 }
-               : {})
-         }
+         ...(revalidate !== undefined ? { next: { revalidate } } : { cache })
       })
 
       if (!response.ok) {
-         throw new Error(`Failed to fetch data: ${response.statusText}`)
+         throw new Error(`HTTP ${response.status} - ${response.statusText}`)
       }
 
       const data = await response.json()
 
       return { data, error: null }
    } catch (error: any) {
-      console.error(`Error during API call: ${error.message}`)
       return {
          data: null,
          error: error.message || "An error occurred during data fetch"
@@ -332,7 +331,6 @@ export const uploadImage = async (fileInput: FormData) => {
          throw new Error(`Failed to upload image. Status: ${response.status}`)
       }
    } catch (error: any) {
-      console.error("Error during image upload:", error)
       return {
          success: false,
          data: null,
@@ -364,7 +362,6 @@ export const verifyPhoneNumber = async (model: string, phone: string, userId: nu
 
       return true
    } catch (error: any) {
-      console.error(`Error during API call: ${error.message}`)
       return false
    }
 }
@@ -456,7 +453,6 @@ export const strapiFetch: {
       }
       return { data, error: null }
    } catch (error: any) {
-      console.error(`Error during API call: ${error.message}`)
       return {
          data: null,
          error: error.message || "An error occurred during data fetch"

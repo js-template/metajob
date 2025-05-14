@@ -1,43 +1,41 @@
 {
-  "name": "@padmadev/backend",
-  "version": "1.0.0-alpha.0",
+  "name": "backend",
+  "version": "2.0.0",
   "private": true,
   "description": "A Strapi application",
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
     "dev": "strapi develop",
-    "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
-    "@jstemplate/metajob-backend": "^0.0.14",
-    "@padmadev/padma-backend": "^0.0.6-alpha.2",
-    "@strapi/plugin-users-permissions": "5.4.0",
-    "@strapi/provider-upload-cloudinary": "^5.4.1",
-    "@strapi/strapi": "^5.4.0",
+    "@jstemplate/metajob-backend": "0.0.14",
+    "@padmadev/padma-backend": "0.0.6-alpha.3",
+    "@strapi/plugin-cloud": "5.6.0",
+    "@strapi/plugin-users-permissions": "5.6.0",
+    "@strapi/provider-upload-cloudinary": "^5.11.2",
+    "@strapi/strapi": "5.6.0",
     "better-sqlite3": "11.3.0",
-    "fs-extra": "^10.0.0",
-    "lodash": "^4.17.21",
-    "mime-types": "^2.1.27",
-    "pg": "^8.13.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0"
+    "pg": "^8.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "strapi-provider-email-brevo": "^1.0.4",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "4.5.5"
+    "@types/node": "^20.17.24",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
-    "yarn": ">=1.22.0"
+    "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "2008be6c-7a09-45fd-aef3-9291d91884bb"
+    "uuid": "bb684f8f-2ce8-4633-b1b2-410e15ca43ab"
   }
 }

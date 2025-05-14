@@ -1,11 +1,46 @@
 "use client"
 import React from "react"
-import { Toolbar, Container, Box, Stack, useTheme, useMediaQuery, Skeleton, styled } from "@mui/material"
+import {
+   Toolbar,
+   Container,
+   Box,
+   Stack,
+   useTheme,
+   useMediaQuery,
+   Skeleton,
+   styled,
+   List,
+   ListItem
+} from "@mui/material"
+import { CSSObject, Theme } from "@mui/material/styles"
+import MuiDrawer from "@mui/material/Drawer"
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar"
 
 interface AppBarProps extends MuiAppBarProps {
    open?: boolean
 }
+
+const drawerWidth = 260
+
+const openedMixin = (theme: Theme): CSSObject => ({
+   width: drawerWidth,
+   marginTop: "73px",
+   height: "calc(100% - 75px)",
+   transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+   }),
+   overflowX: "hidden"
+})
+
+const closedMixin = (theme: Theme): CSSObject => ({
+   transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+   }),
+   overflowX: "hidden",
+   width: `0px`
+})
 
 const AppBar = styled(MuiAppBar, {
    shouldForwardProp: (prop) => prop !== "open"
@@ -19,6 +54,23 @@ const AppBar = styled(MuiAppBar, {
    minHeight: "73px",
    display: "grid",
    alignItems: "center"
+}))
+
+const Drawer = styled(MuiDrawer, {
+   shouldForwardProp: (prop) => prop !== "open"
+})(({ theme, open }) => ({
+   flexShrink: 0,
+   whiteSpace: "nowrap",
+   boxSizing: "border-box",
+   mt: 10,
+   ...(open && {
+      ...openedMixin(theme),
+      "& .MuiDrawer-paper": openedMixin(theme)
+   }),
+   ...(!open && {
+      ...closedMixin(theme),
+      "& .MuiDrawer-paper": closedMixin(theme)
+   })
 }))
 
 export const PrivateHeaderLoader = () => {
@@ -109,6 +161,19 @@ export const PrivateHeaderLoader = () => {
                </Toolbar>
             </Container>
          </AppBar>
+
+         {/* Desktop side nav */}
+         {!isTablet && (
+            <Drawer anchor={theme.direction === "rtl" ? "right" : "left"} variant='permanent' open={true}>
+               <List sx={{ py: 2, px: 1.5 }}>
+                  {[1, 2, 3, 4, 5, 6, 7, 8]?.map((_, index) => (
+                     <ListItem key={index} sx={{ display: "block", py: 0, mb: 1, px: 0 }}>
+                        <Skeleton variant='rounded' width={"100%"} height={40} />
+                     </ListItem>
+                  ))}
+               </List>
+            </Drawer>
+         )}
       </Box>
    )
 }

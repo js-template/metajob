@@ -1,7 +1,10 @@
-export default ({ env }) => ({
+export default ({ env }: { env: any }) => ({
   "padma-backend": {
     enabled: true,
-    // resolve: "./src/plugins/padma-backend",
+  },
+  "metajob-backend": {
+    enabled: true,
+    //resolve: "./src/plugins/metajob-backend",
   },
   upload: {
     config: {
@@ -15,6 +18,26 @@ export default ({ env }) => ({
         upload: {},
         uploadStream: {},
         delete: {},
+      },
+    },
+  },
+  "users-permissions": {
+    config: {
+      register: {
+        allowedFields: ["role"],
+      },
+    },
+  },
+  email: {
+    config: {
+      provider: env("EMAIL_PROVIDER"),
+      providerOptions: {
+        apiKey: env("BREVO_API_KEY"),
+      },
+      settings: {
+        defaultSenderEmail: env("EMAIL_EMAIL"),
+        defaultSenderName: env("EMAIL_NAME"),
+        defaultReplyTo: env("EMAIL_EMAIL"),
       },
     },
   },
