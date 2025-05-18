@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@jstemplate/metajob-theme": "^1.0.0",
-    "@padmadev/blank-theme": "0.0.1-alpha.3",
-    "@padmadev/padma": "workspace:*"
+    "@padmadev/blank-theme": "0.0.1-alpha.3"
   },
   "devDependencies": {
     "prettier": "latest",
