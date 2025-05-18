@@ -1,76 +1,108 @@
-
-# Metajob- Job Board App with Nextjs & Strapi
+# Metajob – Job Board App with Next.js & Strapi
 
 ![banner](https://github.com/user-attachments/assets/ddf05dcf-2b7e-417c-9562-2bd42290f3ff)
 
-### Get the Production license from [Metajob- Job Board App with Nextjs & Strapi](https://jstemplate.net/item/job-board-app-with-nextjs-strapi?utm_source=github&utm_medium=social&utm_campaign=job_board_app)
+**🔗 Get the Production License:**  
+[Job Board App with Next.js & Strapi](https://jstemplate.net/item/job-board-app-with-nextjs-strapi?utm_source=github&utm_medium=repo&utm_campaign=metajob_launch)
 
-## **Getting Started:**
+---
 
-Here’s the complete documentation in markdown format for easy copying and pasting:
+## 🚀 Getting Started
 
+### Prerequisites
 
-## Prerequisites
-Before starting, ensure you have the following installed on your machine:
+Make sure the following are installed:
 
-- **Node.js** (v20 or higher)
-- **pnpm** (Recommended for managing dependencies)
+- **Node.js** (v20 or higher)  
+- **pnpm** (recommended for managing dependencies)
 
+Install `pnpm` if you haven't already:
 
-To install `pnpm`, you can run the following command:
 ```bash
 npm install -g pnpm
+````
+
+---
+
+## 🛠 Setup Instructions
+
+### 1. Clone or Fork the Repo
+
+Once you purchase the license, you’ll receive the codebase and a license token via email.
+If you didn’t get the token, contact **[info@jstemplate.net](mailto:info@jstemplate.net)**.
+
+```bash
+git clone https://github.com/your-username/metajob.git
+cd metajob
+```
+
+### 2. Configure Environment Variables
+
+Rename the following file:
+
+```
+apps/backend/.env.example → apps/backend/.env
+```
+
+Then add your license token to the `.env`:
+
+```bash
+LICENSE_TOKEN=your-token-from-email
+```
+
+In `.npmrc`, include:
+
+```bash
+@jstemplate:registry=https://api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts/
+//api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts/:_authToken=$LICENSE_TOKEN
 ```
 
 ---
 
-## Step-by-Step Guide
+### 3. Install Dependencies
 
-### Step 1: Download Code  
-When you purchase the license, you will receive the codebase and an activation token in your email.
-2. **Open the project** in your preferred code editor (e.g., [VS Code](https://code.visualstudio.com/))
+Run this from the root:
 
-### Step 2: Configure Environment Variables
-2. **Rename these files** to `.env`:
-   - `apps/backend/.env.example` → `apps/backend/.env`
-
-```bash
-export LICENSE_TOKEN='You will recive license on confirmation email'
-```
-```bash
- @jstemplate:registry=https://api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts/
- //api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts/:_authToken=$LICENSE_TOKEN
-```
-
-### Step 3: Install Dependencies
-From the root of your project directory, run the following command to install all dependencies:
 ```bash
 pnpm install
 ```
 
 
-### Step 4: Run the Frontend
-1. In a new terminal, run the frontend application:
-   ```bash
-   pnpm -F @padma/frontend dev
-   ```
-2. **Next.js frontend** will be running at `http://localhost:3000`.
+### 4. Start the Backend (Strapi)
+
+```bash
+pnpm -F backend dev
+```
+
+Strapi will be running at:
+`http://localhost:1337`
+
+### 5. Start the Frontend (Next.js)
+
+Open a new terminal and run:
+
+```bash
+pnpm -F core dev
+```
+
+Frontend will be live at:
+`http://localhost:3000`
 
 ---
-### Step 5: Run the Backend
-1. Navigate to the root directory and run the backend using the following command:
-   ```bash
-   pnpm -F @padma/backend dev
-   ```
-2. **Strapi backend** will now be running at `http://localhost:1337`.
 
-## 📩 Support  
-For any questions or support, contact us at **[info@jstemplate.net](mailto:info@jstemplate.net)**  
+## 📖 Documentation
 
-## 📖 Documentation  
-Find the complete installation and setup guide here: **[MetaJob Documentation](https://docs.jstemplate.net/metajob/get-started/intro/)**  
-
-## 🔗 Product Link  
-[Visit the Product Page](#) (Replace with the actual product link)  
+Read the full guide here:
+[MetaJob Documentation](https://docs.jstemplate.net/metajob/get-started/intro/)
 
 
+## 📩 Support
+
+For help, reach out to:
+📧 [info@jstemplate.net](mailto:info@jstemplate.net)
+
+---
+
+## 🔗 Product Page
+
+[👉 Visit the Product Page](https://jstemplate.net/item/job-board-app-with-nextjs-strapi?utm_source=github&utm_medium=repo&utm_campaign=metajob_launch)
