@@ -9,7 +9,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
-    "@jstemplate/metajob-theme": "^1.0.0",
     "@padmadev/blank-theme": "0.0.1-alpha.3"
   },
   "devDependencies": {
