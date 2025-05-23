@@ -3,6 +3,10 @@ export default ({ env }) => ({
     enabled: true,
     // resolve: "./src/plugins/padma-backend",
   },
+    "metajob-backend": {
+    enabled: true,
+    //resolve: "./src/plugins/metajob-backend",
+  },
   upload: {
     config: {
       provider: "cloudinary",
