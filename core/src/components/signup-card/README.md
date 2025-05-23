@@ -4,12 +4,13 @@ The **SignUpCard** component a auth sign up page collect user from info and trig
 
 ## Props
 
--  `signUpHandler`: A function that will receive data having `username`, `email`, `password`, `confirmPassword`
-   properties.
--  `googleSignUpHandler`: A function that will be triggered when goggle icon button clicked.
--  `facebookSignUpHandler`: A function that will be triggered when facebook icon button clicked.
--  `linkedinSignUpHandler`: A function that will be triggered when linkedin icon button clicked.
--  `loading`: A boolean value for login loader.
+- `signUpHandler`: A function that will receive data having `username`, `email`, `password`, `confirmPassword`
+  properties.
+- `googleSignUpHandler`: A function that will be triggered when goggle icon button clicked.
+- `facebookSignUpHandler`: A function that will be triggered when facebook icon button clicked.
+- `linkedinSignUpHandler`: A function that will be triggered when linkedin icon button clicked.
+- `loading`: A boolean value for login loader.
+- `block`: A block data of `IRegisterBLock` types.
 
 ## Usage
 
@@ -22,7 +23,6 @@ The **SignUpCard** component a auth sign up page collect user from info and trig
 import SignUpCard from "@padma/metajob-ui"
 
 const signUpHandler = (data: {username: string; email: string; password: string; confirmPassword: string}) => {
-   // console.log(data)
 }
 const googleSignUpHandler = () => {
    //  google sign up function here
@@ -34,7 +34,13 @@ const linkedinSignUpHandler = () => {
    //  google sign up function here
 }
 
-<SignUpCard loading={loading} signUpHandler={signUpHandler} googleSignUpHandler={googleSignUpHandler} facebookSignUpHandler {facebookSignUpHandler} linkedinSignUpHandler={linkedinSignUpHandler}
+const blockData ={
+   title: "Create an account",
+   ...
+//   other value from  IRegisterBLock type
+}
+
+<SignUpCard block={blockData}  loading={loading} signUpHandler={signUpHandler} googleSignUpHandler={googleSignUpHandler} facebookSignUpHandler {facebookSignUpHandler} linkedinSignUpHandler={linkedinSignUpHandler}
 />
 
 ```

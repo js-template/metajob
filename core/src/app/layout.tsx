@@ -14,13 +14,14 @@ import { cookies } from "next/headers"
 
 import { find } from "@/lib/strapi"
 import { StyledEngineProvider } from "@mui/material/styles"
+import { getLanguageFromCookie } from "@/utils/language"
+import SidebarSetting from "@/components/common/sidebar-setting"
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
    const session = await auth()
    const cookieStore = cookies()
-   const Lang = cookieStore.get("lang")
 
-   const language = Lang ? Lang.value : "en"
+   const language = await getLanguageFromCookie()
 
    const dir = cookieStore.get("direction")
    const direction = dir ? dir.value : "ltr"
@@ -29,17 +30,15 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
    const { data, error } = await find(
       "api/padma-backend/layout",
       {
-         populate: "*"
-         // publicationState: "live",
-         // locale: [language]
+         populate: "*",
+         locale: language ?? "en"
       },
       "no-store"
    )
-
-   //console.log("Public Layout Loaded", data, error)
+   const showSettingBar = process.env.NEXT_PUBLIC_SHOW_SETTING_BAR
 
    return (
-      <html lang={language} dir={direction}>
+      <html lang={language} dir={direction} suppressHydrationWarning={true}>
          <body dir={direction}>
             <StyledEngineProvider injectFirst>
                <GlobalProvider layout={data?.data || null}>
@@ -51,6 +50,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                               <CssBaseline />
 
                               {props.children}
+                              {showSettingBar && <SidebarSetting />}
                               <Toaster />
                            </NextThemeConfigProvider>
                         </NextThemesProvider>

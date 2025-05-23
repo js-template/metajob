@@ -4,8 +4,15 @@
     "builder": "NIXPACKS",
     "nixpacksPlan": {
       "phases": {
-        "setup": {
-          "nixPkgs": ["yarn"]
+        "npm:config": {
+          "dependsOn": ["setup"],
+          "cmds": [
+            "npm config set @jstemplate:registry https://api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts",
+            "npm config set //api.keygen.sh/v1/accounts/88de7a21-b541-48e5-8727-f992ebeb43fa/artifacts/:_authToken=$NPM_TOKEN"
+          ]
+        },
+        "install": {
+          "dependsOn": ["setup", "npm:config"]
         }
       }
     }

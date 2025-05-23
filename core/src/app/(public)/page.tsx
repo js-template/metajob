@@ -6,19 +6,16 @@ import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
 
 export default async function Home() {
-   const language = getLanguageFromCookie()
+   const language = await getLanguageFromCookie()
 
-   const { data, error } = await find(
-      "api/padma-backend/public-frontpage",
-      {
-         populate: {
-            blocks: {
-               populate: "*"
-            }
+   const { data, error } = await find("api/padma-backend/public-frontpage", {
+      populate: {
+         blocks: {
+            populate: "*"
          }
       },
-      "no-store"
-   )
+      locale: language ?? "en"
+   })
 
    const activeTheme = await loadActiveTheme()
 
@@ -27,14 +24,11 @@ export default async function Home() {
 
    if (activeTheme) {
       getPublicComponents = activeTheme.getPublicComponents
-      // console.log(getPublicComponents)
    } else {
       console.error("Active theme could not be loaded!")
    }
 
    const blocks = data?.data?.blocks || []
-
-   // console.log("Home Page Blocks Loaded", blocks)
 
    return (
       <Fragment>
@@ -55,16 +49,16 @@ export default async function Home() {
 
 // *** generate metadata for the page
 export async function generateMetadata(): Promise<Metadata> {
-   // const language = getLanguageFromCookie()
+   // const language = await getLanguageFromCookie()
    // *** fetch seo data
 
-   const product = await find(
-      "api/padma-backend/public-frontpage",
-      {
-         populate: "*"
-      },
-      "force-cache"
-   )
+   const product = await find("api/padma-backend/public-frontpage", {
+      populate: {
+         seo: {
+            populate: "*"
+         }
+      }
+   })
 
    return StrapiSeoFormate(product?.data?.data?.seo)
 }

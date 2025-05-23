@@ -10,6 +10,7 @@ interface SignUpFormData {
    email: string
    username: string
    password: string
+   role: number
 }
 
 /**
@@ -94,6 +95,7 @@ export const SignUp = async (formData: SignUpFormData) => {
    const email = formData.email
    const username = formData.username
    const password = formData?.password
+   const role = formData?.role
 
    try {
       // Set loading state or perform any necessary actions before the API call
@@ -110,7 +112,8 @@ export const SignUp = async (formData: SignUpFormData) => {
          body: JSON.stringify({
             username: username,
             email: email,
-            password: password
+            password: password,
+            role: role
          })
       })
 

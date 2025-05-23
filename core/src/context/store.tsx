@@ -28,6 +28,8 @@ interface contextProps {
    jobFilter?: boolean
    setJobFilter?: (jobFilter: boolean) => void
    layoutData?: layoutDataTypeProps | null | undefined
+   primaryColor: string
+   setPrimaryColor?: (val: string) => void
 }
 
 // NOTE: Global context store
@@ -43,7 +45,9 @@ const GlobalContext = createContext<contextProps>({
    setHydration: () => {},
    jobFilter: true,
    setJobFilter: () => {},
-   layoutData: null
+   layoutData: null,
+   primaryColor: "#1CAF57",
+   setPrimaryColor: () => {}
 })
 
 // NOTE: Global provider for context store
@@ -58,6 +62,7 @@ export const GlobalProvider = ({ children, language, layout }: Props) => {
    const isTablet = useMediaQuery("(max-width: 1024px)")
    // ?? layout data from the server
    const [layoutData, setLayoutData] = useState<layoutDataTypeProps | null | undefined>(layout)
+   const [primaryColor, setPrimaryColor] = useState("#1CAF57")
 
    // NOTE: Set the jobFilter state to false if the screen size is less than 1024px
    useEffect(() => {
@@ -120,7 +125,7 @@ export const GlobalProvider = ({ children, language, layout }: Props) => {
          maxAge: 30 * 24 * 60 * 60,
          path: "/"
       })
-      router.refresh()
+      router.push("/")
    }
 
    // NOTE: Change the direction function handler
@@ -159,7 +164,9 @@ export const GlobalProvider = ({ children, language, layout }: Props) => {
             setHydration,
             jobFilter,
             setJobFilter,
-            layoutData
+            layoutData,
+            primaryColor,
+            setPrimaryColor
          }}>
          {children}
       </GlobalContext.Provider>

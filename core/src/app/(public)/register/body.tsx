@@ -7,7 +7,33 @@ import toast from "react-hot-toast"
 import { PageLoader } from "@/components/loader/pageLoader"
 import { SignUpCard } from "@/components/signup-card"
 
-const RegisterBody = () => {
+type Props = {
+   block: {
+      title?: string
+      username_title?: string
+      username_placeholder?: string
+      email_title?: string
+      email_placeholder?: string
+      password_title?: string
+      password_placeholder?: string
+      confirm_password_title?: string
+      confirm_password_placeholder?: string
+      required_placeholder?: string
+      button_placeholder?: string
+      or_placeholder?: string
+      login_helper_placeholder?: string
+      login_link_placeholder?: string
+      provider_option?: boolean
+      style?: {
+         color?: any
+         secondary_color?: string
+         backgroundColor?: any
+         section_padding?: number
+      }
+   } | null
+}
+
+const RegisterBody = ({ block }: Props) => {
    const router = useRouter()
    const { status } = useSession()
 
@@ -33,9 +59,10 @@ const RegisterBody = () => {
          return
       }
       let modifiedData = {
-         username: data.username,
-         email: data.email,
-         password: data.password
+         username: data?.username,
+         email: data?.email,
+         password: data?.password,
+         role: data?.role
       }
       try {
          // Use the getUser function to perform the login
@@ -50,7 +77,6 @@ const RegisterBody = () => {
          // Redirect to the dashboard upon successful login
       } catch (error) {
          // Handle any unexpected errors during the login process
-         console.error(error)
          toast.error("Username or Email already exists")
          setLoading(false)
          // reset()
@@ -79,11 +105,12 @@ const RegisterBody = () => {
 
    return (
       <SignUpCard
+         block={block}
          loading={loading}
          signUpHandler={handleSignUp}
          googleSignUpHandler={handleGoogleSignUp}
          facebookSignUpHandler={handleFacebookSignUp}
-         linkedinSignUpHandler={handleLinkedinSignUp}
+         // linkedinSignUpHandler={handleLinkedinSignUp}
       />
    )
 }

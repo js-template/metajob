@@ -36,7 +36,6 @@ export const config = {
                email: credentials.username,
                password: credentials.password
             })
-
             if (result?.isLoggedIn) {
                const data = await getUser(result.data)
 
@@ -71,6 +70,25 @@ export const config = {
 
    // *** callbacks for session and jwt
    callbacks: {
+      async signIn({ account }: any) {
+         // Perform your sign-in logic here...
+         if (account?.provider === "credentials") {
+            return true
+         }
+
+         const result = await fetch(
+            `${process.env.STRAPI_ENDPOINT}/api/auth/${account?.provider}/callback?access_token=${account?.access_token}`
+         )
+
+         const data = await result.json()
+         // If sign-in is not successful, return false
+         if (data?.error) {
+            return false
+         }
+
+         // If sign-in is successful, return true
+         return true
+      },
       authorized({ request, auth }: any) {
          const { pathname } = request.nextUrl
          // *** Here add your protracted URL
@@ -101,6 +119,14 @@ export const config = {
                   throw new Error("Error getting user")
                }
 
+               // *** trigger is update
+               if (trigger === "update") {
+                  token = {
+                     ...token,
+                     ...session
+                  }
+               }
+
                return {
                   ...token,
                   ...user,
@@ -110,11 +136,12 @@ export const config = {
 
             return false
          }
+
          // *** trigger is update
          if (trigger === "update") {
-            return {
+            token = {
                ...token,
-               ...session.user // use the user object to populate jwt token
+               ...session
             }
          }
          return {

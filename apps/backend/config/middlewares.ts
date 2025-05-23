@@ -22,4 +22,6 @@ export default [
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
+  // user registration middleware
+  "global::register-middleware",
 ];

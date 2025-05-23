@@ -1,18 +1,17 @@
 import PublicFooter from "@/components/layouts/public-footer"
 import { find } from "@/lib/strapi"
+import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
 
 export default async function PublicLayoutFooter() {
-   // fetch footer data
-   const { data, error } = await find(
-      "api/padma-backend/layout",
-      {
-         populate: {
-            footer: { populate: "*" }
-         }
+   const language = await getLanguageFromCookie()
+
+   const { data, error } = await find("api/padma-backend/layout", {
+      populate: {
+         footer: { populate: "*" }
       },
-      "no-store"
-   )
+      locale: language ?? "en"
+   })
 
    const activeTheme = await loadActiveTheme()
 

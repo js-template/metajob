@@ -1,13 +1,17 @@
 import { useGlobalContext } from "@/context/store"
 import { find } from "@/lib/strapi"
+import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
+import { locale } from "moment"
 
 export default async function PrivateLayoutFooter() {
+   const language = await getLanguageFromCookie()
    const { data, error } = await find(
       // : API call need to Fix. It will be private Header
       "api/padma-backend/private-layout",
       {
-         populate: "*"
+         populate: "*",
+         locale: language ?? "en"
       },
       "no-store"
    )
@@ -19,7 +23,6 @@ export default async function PrivateLayoutFooter() {
 
    if (activeTheme) {
       getPrivateComponents = activeTheme.getPrivateComponents
-      // console.log(getPrivateComponents)
    } else {
       console.error("Active theme could not be loaded!")
    }
