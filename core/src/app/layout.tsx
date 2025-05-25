@@ -11,7 +11,6 @@ import "/public/icon/icon.css"
 import "react-perfect-scrollbar/dist/css/styles.css"
 import { GlobalProvider } from "@/context/store"
 import { cookies } from "next/headers"
-
 import { find } from "@/lib/strapi"
 import { StyledEngineProvider } from "@mui/material/styles"
 import { getLanguageFromCookie } from "@/utils/language"
@@ -35,6 +34,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       },
       "no-store"
    )
+
+   // get the theme-setting data from the server
+   const { data: settingData } = await find("api/metajob-backend/theme-setting", {
+      populate: "*"
+   })
+
    const showSettingBar = process.env.NEXT_PUBLIC_SHOW_SETTING_BAR
 
    return (
@@ -45,7 +50,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                   <NextAuthSessionProvider session={session}>
                      <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                         <NextThemesProvider>
-                           <NextThemeConfigProvider direction={direction}>
+                           <NextThemeConfigProvider direction={direction} settingData={settingData?.data || null}>
                               {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                               <CssBaseline />
 
