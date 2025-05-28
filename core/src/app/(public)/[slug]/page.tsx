@@ -4,6 +4,7 @@ import { find } from "@/lib/strapi"
 import { StrapiSeoFormate } from "@/lib/strapiSeo"
 import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
+import { jsonLdFormatter } from "@/lib/seo-helper"
 
 export const dynamicParams = true // true | false,
 
@@ -24,6 +25,9 @@ export default async function DynamicPages({
       },
       populate: {
          blocks: {
+            populate: "*"
+         },
+         seo: {
             populate: "*"
          }
       },
@@ -52,8 +56,14 @@ export default async function DynamicPages({
       throw error
    }
 
+   // Format the SEO data into JSON-LD
+   const dataJsonLd = jsonLdFormatter(data?.data?.[0]?.seo, "ItemList")
+
    return (
       <>
+         {/* dynamic page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
          {blocks?.map((block: any, index: number) => {
             const BlockConfig = getPublicComponents[block.__component as keyof typeof getPublicComponents]
 
