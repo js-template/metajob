@@ -70,6 +70,21 @@ export const jsonLdFormatter = (seoData: Record<string, any>, type: string = "We
             telephone: data?.user?.phone || ""
          }
 
+      case "BlogPosting":
+         return {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: data?.title || "",
+            description: data?.short_description || "",
+            datePublished: data?.publishedAt,
+            dateModified: data?.updatedAt || data?.publishedAt || "",
+            image: data?.featuredImage?.url || "",
+            author: {
+               "@type": "Person",
+               name: data?.user?.first_name || data?.user?.username || ""
+            }
+         }
+
       default:
          return {
             "@context": "https://schema.org",
