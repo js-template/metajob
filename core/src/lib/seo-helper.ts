@@ -74,11 +74,11 @@ export const jsonLdFormatter = (seoData: Record<string, any>, type: string = "We
          return {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            headline: data?.title || "",
-            description: data?.short_description || "",
+            headline: seoData?.metaTitle || data?.title || "",
+            description: seoData?.metaDescription || data?.short_description || "",
             datePublished: data?.publishedAt,
             dateModified: data?.updatedAt || data?.publishedAt || "",
-            image: data?.featuredImage?.url || "",
+            image: seoData?.metaImage?.url || data?.featuredImage?.url || "",
             author: {
                "@type": "Person",
                name: data?.user?.first_name || data?.user?.username || ""
