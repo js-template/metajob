@@ -70,5 +70,5 @@ export async function generateMetadata(): Promise<Metadata> {
       }
    })
 
-   return StrapiSeoFormate(product?.data?.data?.seo)
+   return StrapiSeoFormate(product?.data?.data?.seo, "/")
 }

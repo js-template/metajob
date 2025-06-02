@@ -238,8 +238,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    // ?? if seo is not available, return default data
    if (!seoData?.data?.[0]?.seo) {
       return {
-         title: seoData?.data[0]?.title || seoData?.data[0]?.name,
-         description: seoData?.data[0]?.description || "Description not found"
+         title:
+            seoData?.data[0]?.title || seoData?.data[0]?.name || pageItem?.charAt(0).toUpperCase() + pageItem.slice(1),
+         description:
+            seoData?.data[0]?.description || pageItem?.charAt(0).toUpperCase() + pageItem.slice(1) + " Page Description"
       }
    }
 

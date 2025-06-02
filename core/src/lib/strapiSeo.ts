@@ -33,10 +33,11 @@ export type StrapiSeo = {
  */
 export const StrapiSeoFormate = (seoData: StrapiSeo, path?: string) => {
    // *** If the StrapiSeo data is not provided, return the default data ***
+   const title = pathToTitleFormatter(path || "")
    if (!seoData) {
       return {
-         title: "Title not found",
-         description: "Description not found"
+         title: `${title} - Page`,
+         description: `${title} - Page Description`
       }
    }
 
@@ -56,4 +57,15 @@ export const StrapiSeoFormate = (seoData: StrapiSeo, path?: string) => {
          canonical: seoData?.canonicalURL || `${NEXTAUTH_URL}${path || ""}`
       }
    }
+}
+
+const pathToTitleFormatter = (path: string): string => {
+   if (path === "" || path === "/") {
+      return "Home"
+   }
+   // *** Split the path by '/' and filter out empty segments ***
+   const segments = path.split("/").filter((segment) => segment)
+
+   // *** Join the segments with spaces and capitalize each word ***
+   return segments.map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1)).join(" ")
 }
