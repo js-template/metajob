@@ -4,6 +4,7 @@ import { find } from "@/lib/strapi"
 import { StrapiSeoFormate } from "@/lib/strapiSeo"
 import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
+import { jsonLdFormatter } from "@/lib/seo-helper"
 
 export default async function Home() {
    const language = await getLanguageFromCookie()
@@ -11,6 +12,9 @@ export default async function Home() {
    const { data, error } = await find("api/padma-backend/public-frontpage", {
       populate: {
          blocks: {
+            populate: "*"
+         },
+         seo: {
             populate: "*"
          }
       },
@@ -30,8 +34,14 @@ export default async function Home() {
 
    const blocks = data?.data?.blocks || []
 
+   // Format the SEO data into JSON-LD
+   const dataJsonLd = jsonLdFormatter(data?.data?.seo, "WebSite")
+
    return (
       <Fragment>
+         {/* page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
          {/* Render the components dynamically using blockComponentMapping */}
          {blocks?.map((block: { __component: keyof typeof getPublicComponents }, index: number) => {
             const BlockConfig = getPublicComponents[block.__component]
@@ -60,5 +70,5 @@ export async function generateMetadata(): Promise<Metadata> {
       }
    })
 
-   return StrapiSeoFormate(product?.data?.data?.seo)
+   return StrapiSeoFormate(product?.data?.data?.seo, "/")
 }

@@ -112,8 +112,10 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
    )
    if (!product?.data?.data?.[0]?.seo) {
       return {
-         title: product?.data?.data?.[0]?.title || "Title not found",
-         description: `Description ${product?.data?.data[0]?.title}` || "Description not found"
+         title: product?.data?.data?.[0]?.title || pageSlug?.charAt(0).toUpperCase() + pageSlug?.slice(1),
+         description:
+            `Description ${product?.data?.data[0]?.title}` ||
+            pageSlug?.charAt(0).toUpperCase() + pageSlug.slice(1) + " Page Description"
       }
    }
 
