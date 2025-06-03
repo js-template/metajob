@@ -7,6 +7,12 @@ export type StrapiSeo = {
    keywords: string
    metaRobots: string
    canonicalURL: string
+   metaImage: {
+      url: string
+      alternativeText: string
+      width: number
+      height: number
+   }
 }
 
 // *** StrapiSeoFormate function ***
@@ -55,6 +61,19 @@ export const StrapiSeoFormate = (seoData: StrapiSeo, path?: string) => {
       },
       alternates: {
          canonical: seoData?.canonicalURL || `${NEXTAUTH_URL}${path || ""}`
+      },
+      openGraph: {
+         title: seoData?.metaTitle || "",
+         description: seoData?.metaDescription || "",
+         url: seoData?.canonicalURL || `${NEXTAUTH_URL}${path || ""}`,
+         images: [
+            {
+               url: seoData?.metaImage?.url || "",
+               width: seoData?.metaImage?.width || 1200,
+               height: seoData?.metaImage?.height || 630,
+               alt: seoData?.metaImage?.alternativeText || seoData?.metaTitle || "OG Image"
+            }
+         ]
       }
    }
 }
