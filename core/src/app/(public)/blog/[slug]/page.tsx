@@ -5,6 +5,7 @@ import { StrapiSeoFormate } from "@/lib/strapiSeo"
 import { getLanguageFromCookie } from "@/utils/language"
 import { Metadata, ResolvingMetadata } from "next"
 import { loadActiveTheme } from "config/theme-loader"
+import { jsonLdFormatter } from "@/lib/seo-helper"
 
 // *** generate metadata type
 type Props = {
@@ -63,8 +64,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
    // }
    const blocks = blogPageData?.data?.blocks || []
 
+   // Format the SEO data into JSON-LD
+   const dataJsonLd = jsonLdFormatter(pageDetailsData?.seo, "BlogPosting", pageDetailsData)
+
    return (
       <Fragment>
+         {/* blog-details page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
          {/* Render the components dynamically using blockComponentMapping */}
          {blocks?.map((block: any, index: number) => {
             // @ts-ignore

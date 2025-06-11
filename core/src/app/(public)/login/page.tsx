@@ -3,6 +3,7 @@ import LoginBody from "./body"
 import { getLanguageFromCookie } from "@/utils/language"
 import { find } from "@/lib/strapi"
 import { StrapiSeoFormate } from "@/lib/strapiSeo"
+import { jsonLdFormatter } from "@/lib/seo-helper"
 
 type Props = {
    searchParams?: Record<"callbackUrl" | "error", string>
@@ -21,7 +22,17 @@ const LoginPage = async ({ searchParams }: Props) => {
    })
    const block = data?.data?.login?.[0] || null
 
-   return <LoginBody error={searchParams?.error} callbackUrl={searchParams?.callbackUrl} block={block} />
+   // Format the SEO data into JSON-LD
+   const dataJsonLd = jsonLdFormatter(data?.data?.login?.[0]?.seo, "WebPage")
+
+   return (
+      <>
+         {/* page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
+         <LoginBody error={searchParams?.error} callbackUrl={searchParams?.callbackUrl} block={block} />
+      </>
+   )
 }
 
 export default LoginPage
