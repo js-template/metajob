@@ -44,3 +44,11 @@ export default async function ChooseRolePage({ params }: { params: { page: strin
       </Suspense>
    )
 }
+
+// *** generate metadata for the page
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+   return {
+      title: "Choose Role Page",
+      description: "Choose Role Page Description"
+   }
+}

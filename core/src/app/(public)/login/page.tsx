@@ -53,9 +53,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
    const seoDataPre = {
       ...seoData,
-      metaTitle: seoData?.metaTitle || "Login - MetaJobs",
-      metaDescription:
-         seoData?.metaDescription || "MetaJobs is a job board for developers, designers, and other tech professionals."
+      metaTitle: seoData?.metaTitle || "Login - Page",
+      metaDescription: seoData?.metaDescription || "Login - Page description"
    }
    return StrapiSeoFormate(seoDataPre)
 }

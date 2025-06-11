@@ -6,6 +6,7 @@ import { getLanguageFromCookie } from "@/utils/language"
 import { Metadata, ResolvingMetadata } from "next"
 import { loadActiveTheme } from "config/theme-loader"
 import { jsonLdFormatter } from "@/lib/seo-helper"
+import { capitalize } from "lodash"
 
 // *** generate metadata type
 type Props = {
@@ -109,8 +110,9 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
    // if seo is not available, return default data
    if (!data?.data?.[0]?.seo) {
       return {
-         title: data?.data?.[0]?.title || "Title not found",
-         description: data?.data?.[0]?.short_description || "Description not found"
+         title: data?.data?.[0]?.title || pageSlug?.charAt(0).toUpperCase() + pageSlug?.slice(1),
+         description:
+            data?.data?.[0]?.short_description || pageSlug?.charAt(0).toUpperCase() + pageSlug.slice(1) + " Description"
       }
    }
 

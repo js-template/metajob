@@ -3,6 +3,7 @@ import { auth } from "@/context/auth"
 import { Fragment } from "react"
 import { getLanguageFromCookie } from "@/utils/language"
 import { loadActiveTheme } from "config/theme-loader"
+import { Metadata, ResolvingMetadata } from "next"
 
 export default async function ProfilePage() {
    const session = await auth()
@@ -42,4 +43,18 @@ export default async function ProfilePage() {
          })}
       </>
    )
+}
+
+// *** generate metadata type
+type Props = {
+   params: { slug: string }
+   searchParams: { [key: string]: string | string[] | undefined }
+}
+
+// *** generate metadata for the page
+export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+   return {
+      title: "My Profile Page",
+      description: "My Profile Page Description"
+   }
 }
