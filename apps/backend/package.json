@@ -11,7 +11,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@jstemplate/metajob-backend": "0.0.14",
+    "@jstemplate/metajob-backend": "0.0.15",
     "@padmadev/padma-backend": "0.0.6-alpha.3",
     "@strapi/plugin-cloud": "5.6.0",
     "@strapi/plugin-users-permissions": "5.6.0",
