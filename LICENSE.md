@@ -1,21 +1,43 @@
-The MIT License (MIT)
+# MetaJob License
 
-Copyright (c) 2024 Vercel, Inc.
+Copyright (c) 2021-present JS Template
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The source code for MetaJob is publicly visible for the purposes of transparency, community contributions, and evaluation.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+However, **MetaJob is NOT licensed under an open source license** like MIT or GPL. **You may not use this software in a commercial project without purchasing a valid license.**
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+---
+
+## What's Free vs. Paid
+
+### ✅ Free to view and contribute:
+
+You may:
+- View the source code for educational or review purposes
+- Fork and experiment locally (non-commercial use only)
+- Submit improvements via pull requests
+
+### ❌ Not free to use or redistribute:
+
+The following components are proprietary and require a **paid license**:
+- All files in `apps/backend/src/plugins/metajob-backend`
+- All themes in `packages/metajob-theme/` or `packages/themes/premium-*`
+- Any derivative or production deployment of MetaJob
+
+You **may not**:
+- Use MetaJob (or any part of it) in a commercial project without a valid license
+- Redistribute this software or make it publicly available under your own branding
+- Offer MetaJob as a service or host it on behalf of others without a license
+
+---
+
+
+## Summary
+
+- **Viewable?** Yes
+- **Modifiable for personal use?** Yes
+- **Commercial use?** ❌ Not without license
+- **Contributions accepted?** ✅ Yes
+
+If you are unsure whether your usage is allowed, please contact info@jstemplate.net
+
