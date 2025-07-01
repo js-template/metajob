@@ -4,8 +4,15 @@ import { useTheme } from "next-themes"
 import React, { useEffect, useMemo, useState } from "react"
 import { darkTheme, lightTheme } from "../theme"
 import { useGlobalContext } from "@/context/store"
+import { mergeThemeSettings } from "@/utils/theme-utils"
 
-export const NextThemeConfigProvider = ({ children, direction }: { children: React.ReactNode; direction: string }) => {
+type Props = {
+   children: React.ReactNode
+   direction: string
+   settingData?: any
+}
+
+export const NextThemeConfigProvider = ({ children, direction, settingData }: Props) => {
    const { primaryColor } = useGlobalContext()
    const { resolvedTheme } = useTheme()
    const [mounted, setMounted] = useState(false)
@@ -14,35 +21,41 @@ export const NextThemeConfigProvider = ({ children, direction }: { children: Rea
       setMounted(true)
    }, [])
 
-   // Dynamically inject primaryColor into light theme
+   // Dynamically inject light theme
    const newLightTheme = useMemo(() => {
+      const updatedLightTheme = mergeThemeSettings(lightTheme, settingData, "light")
       return {
-         ...lightTheme,
+         ...updatedLightTheme,
          direction,
-         palette: {
-            ...lightTheme.palette,
-            primary: {
-               ...lightTheme.palette.primary,
-               main: primaryColor
+         ...(primaryColor && {
+            palette: {
+               ...updatedLightTheme.palette,
+               primary: {
+                  ...updatedLightTheme?.palette?.primary,
+                  main: primaryColor
+               }
             }
-         }
+         })
       }
-   }, [direction, primaryColor])
+   }, [direction, settingData, primaryColor])
 
-   // Dynamically inject primaryColor into dark theme
+   // Dynamically inject dark theme
    const newDarkTheme = useMemo(() => {
+      const updatedDarkTheme = mergeThemeSettings(darkTheme, settingData, "dark")
       return {
-         ...darkTheme,
+         ...updatedDarkTheme,
          direction,
-         palette: {
-            ...darkTheme.palette,
-            primary: {
-               ...darkTheme.palette.primary,
-               main: primaryColor
+         ...(primaryColor && {
+            palette: {
+               ...updatedDarkTheme.palette,
+               primary: {
+                  ...updatedDarkTheme?.palette?.primary,
+                  main: primaryColor
+               }
             }
-         }
+         })
       }
-   }, [direction, primaryColor])
+   }, [direction, settingData, primaryColor])
 
    const theme = useMemo(
       () => (resolvedTheme === "light" ? newLightTheme : newDarkTheme),

@@ -3,6 +3,7 @@ import RegisterBody from "./body"
 import { getLanguageFromCookie } from "@/utils/language"
 import { find } from "@/lib/strapi"
 import { StrapiSeoFormate } from "@/lib/strapiSeo"
+import { jsonLdFormatter } from "@/lib/seo-helper"
 
 const Register = async () => {
    // fetch the language from cookies or session
@@ -17,7 +18,17 @@ const Register = async () => {
    })
    const block = data?.data?.register?.[0] || null
 
-   return <RegisterBody block={block} />
+   // Format the SEO data into JSON-LD
+   const dataJsonLd = jsonLdFormatter(data?.data?.register?.[0]?.seo, "WebPage")
+
+   return (
+      <>
+         {/* page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
+         <RegisterBody block={block} />
+      </>
+   )
 }
 export default Register
 
@@ -37,9 +48,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
    const seoDataPre = {
       ...seoData,
-      metaTitle: seoData?.metaTitle || "Register - MetaJobs",
-      metaDescription:
-         seoData?.metaDescription || "MetaJobs is a job board for developers, designers, and other tech professionals."
+      metaTitle: seoData?.metaTitle || "Register - Page",
+      metaDescription: seoData?.metaDescription || "Register - Page description"
    }
    return StrapiSeoFormate(seoDataPre)
 }

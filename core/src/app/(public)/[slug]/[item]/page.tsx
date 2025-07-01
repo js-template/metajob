@@ -6,6 +6,7 @@ import { Metadata } from "next"
 import { loadActiveTheme } from "config/theme-loader"
 
 import { getLanguageFromCookie } from "@/utils/language"
+import { getSchemaTypeByCollectionModel, jsonLdFormatter } from "@/lib/seo-helper"
 
 // ?? Next.js will invalidate the cache when a
 // ?? request comes in, at most once every 60 seconds.
@@ -107,8 +108,15 @@ export default async function DynamicPages({ params }: Props) {
       return notFound()
    }
 
+   // Format the SEO data into JSON-LD
+   const schemaType = getSchemaTypeByCollectionModel(collectionModel)
+   const dataJsonLd = jsonLdFormatter(pageDetailsData?.seo, schemaType, pageDetailsData)
+
    return (
       <>
+         {/* dynamic-details page JSON-LD  */}
+         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(dataJsonLd) }} />
+
          {/* Render the components dynamically using blockComponentMapping */}
          {blocks?.map((block: any, index: number) => {
             // @ts-ignore
@@ -230,8 +238,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    // ?? if seo is not available, return default data
    if (!seoData?.data?.[0]?.seo) {
       return {
-         title: seoData?.data[0]?.title || seoData?.data[0]?.name,
-         description: seoData?.data[0]?.description || "Description not found"
+         title:
+            seoData?.data[0]?.title || seoData?.data[0]?.name || pageItem?.charAt(0).toUpperCase() + pageItem.slice(1),
+         description:
+            seoData?.data[0]?.description || pageItem?.charAt(0).toUpperCase() + pageItem.slice(1) + " Page Description"
       }
    }
 

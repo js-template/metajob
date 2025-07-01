@@ -62,7 +62,7 @@ export const GlobalProvider = ({ children, language, layout }: Props) => {
    const isTablet = useMediaQuery("(max-width: 1024px)")
    // ?? layout data from the server
    const [layoutData, setLayoutData] = useState<layoutDataTypeProps | null | undefined>(layout)
-   const [primaryColor, setPrimaryColor] = useState("#1CAF57")
+   const [primaryColor, setPrimaryColor] = useState("")
 
    // NOTE: Set the jobFilter state to false if the screen size is less than 1024px
    useEffect(() => {
